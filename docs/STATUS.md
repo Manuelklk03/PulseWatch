@@ -2,7 +2,7 @@
 
 ## Actualización
 
-2026-11-04 — paquete documental inicial preparado.
+2026-11-05 — selección de herramientas documentada en docs/tooling.md (rama docs/tooling-selection, PR pendiente de integrar). Paquete documental inicial publicado en main el mismo día.
 
 ## Estado comprobado
 
@@ -12,7 +12,7 @@ Rama y commit del usuario: sin consultar. Documentación pendiente de importar, 
 
 ## Fase y tarea activa
 
-Fase 0. Importar el paquete a docs/project-foundation y revisar el alcance.
+Fase 0. Revisar e integrar la PR de herramientas y confirmar el alcance inicial.
 
 ## Aplicación y controles
 
@@ -20,11 +20,11 @@ Sin código de aplicación. ESLint, Prettier, Ruff, mypy, tests, Docker, Actions
 
 ## Decisiones
 
-React/TypeScript/Vite; Python/FastAPI; PostgreSQL; API y worker separados; GitHub Flow con commit de merge. Plugins pendientes de selección con Claude.
+React/TypeScript/Vite; Python/FastAPI; PostgreSQL; API y worker separados; GitHub Flow con commit de merge. Selección de plugins y reparto con Codex en docs/tooling.md; disponibilidad real en el equipo sin verificar.
 
 ## Siguiente paso
 
-Seguir EMPEZAR.md. Comprobar estado de Git, copiar los archivos a la rama documental, revisar el diff y preparar la primera PR.
+Integrar la PR de herramientas con merge commit, confirmar el alcance inicial y cerrar la Fase 0; después, planificar la Fase 1.
 
 ## Cómo actualizar
 
