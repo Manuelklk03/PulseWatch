@@ -10,5 +10,8 @@ Cambios completados, no planes futuros. Estos últimos pertenecen al roadmap.
 - Reglas de GitHub Flow y plan de calidad, pruebas, DevSecOps y despliegue.
 
 - Selección de herramientas y plugins para Claude Code y reparto de tareas con Codex en docs/tooling.md.
+- Alcance inicial confirmado y decisiones abiertas registradas en docs/STATUS.md.
+- Regla de GitHub Flow: cada PR contiene al menos tres commits coherentes.
+- README reescrito para presentar el proyecto, su arquitectura y su seguridad.
 
 La incorporación a un repositorio y la configuración técnica todavía están pendientes.
