@@ -61,8 +61,8 @@ Las versiones se fijarán, junto con sus archivos de bloqueo, al inicializar cad
 
 | Fase | Objetivo | Estado |
 | --- | --- | --- |
-| 0 | Definir producto, arquitectura, seguridad y forma de trabajo | Completada al integrar la última PR |
-| 1 | Base técnica: frontend, backend, base de datos, Docker, CI y análisis de calidad | Pendiente |
+| 0 | Definir producto, arquitectura, seguridad y forma de trabajo | Completada |
+| 1 | Base técnica: frontend, backend, base de datos, Docker, CI y análisis de calidad | En curso |
 | 2 | Primer recorrido: crear un monitor y consultar sus resultados en local | Pendiente |
 | 3 | Versión publicable: usuarios, incidencias, permisos y responsive | Pendiente |
 | 4 | Despliegue y operación: CD, copias, logs y demo | Pendiente |

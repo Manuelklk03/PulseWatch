@@ -13,7 +13,7 @@ Cierre: documentación revisada en main y punto de continuación actualizado.
 
 ## Fase 1 — Base técnica
 
-- [ ] Fijar versiones compatibles y requisitos del entorno.
+- [x] Fijar versiones compatibles y requisitos del entorno.
 - [ ] React, TypeScript y Vite.
 - [ ] ESLint, Prettier y comprobación de tipos.
 - [ ] FastAPI, Ruff, mypy y pytest.
