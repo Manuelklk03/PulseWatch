@@ -4,6 +4,25 @@
 
 Pendiente. No hay hosting, registro ni comandos de arranque verificados.
 
+## Requisitos del entorno de desarrollo
+
+Comprobado el 2026-11-05 en el equipo de Manuel (Windows 11, PowerShell):
+
+| Herramienta | Versión disponible | Decisión |
+| --- | --- | --- |
+| Node.js | 24.21.0 | Usar Node 24. Vite 8 exige ^20.19.0 o >=22.12.0. |
+| npm | 12.1.0 | Gestor del frontend; se conserva package-lock.json. |
+| Python | 3.14.0 y 3.13 | Objetivo 3.13, a verificar al inicializar el backend. |
+| uv | 0.13.4 | Gestor de entorno y dependencias del backend; se conserva uv.lock. |
+| Docker y Compose | 29.9.2 y 5.6.1 | Entorno reproducible y PostgreSQL local. |
+| Git | 2.51.0 | Flujo de docs/git-workflow.md. |
+
+No se instala PostgreSQL ni psql en el sistema: la base de datos local se ejecuta en Docker.
+
+Sobre Python: una simulación de instalación con uv (sin instalar ni ejecutar) resolvió FastAPI, SQLAlchemy, Alembic, psycopg, pydantic, mypy, ruff y pytest tanto en 3.14 como en 3.13. Se elige 3.13 por ser más madura; se fijará con un archivo .python-version al crear el backend y se revisará con una prueba real.
+
+Versiones de las librerías (Vite, React, TypeScript, FastAPI y el resto) y la imagen de PostgreSQL se fijan al inicializar cada parte, con su archivo de bloqueo.
+
 ## Local
 
 Compose tendrá frontend, API, worker y PostgreSQL. Al implementarlo, documentar versiones, puertos, variables, migraciones, datos de ejemplo, salud, arranque, parada y diagnóstico. Diferenciar configuración de desarrollo y producción.
