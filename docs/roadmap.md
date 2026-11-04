@@ -4,10 +4,10 @@ Cada fase tiene tareas acotadas y condiciones de cierre. No ejecutar todas las f
 
 ## Fase 0 — Directrices
 
-- [ ] Incorporar y revisar este paquete en el repositorio.
-- [ ] Confirmar alcance inicial.
+- [x] Incorporar y revisar este paquete en el repositorio.
+- [x] Confirmar alcance inicial.
 - [x] Seleccionar plugins con Claude y documentarlos.
-- [ ] Revisar e integrar PR de documentación.
+- [x] Revisar e integrar PR de documentación.
 
 Cierre: documentación revisada en main y punto de continuación actualizado.
 

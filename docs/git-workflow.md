@@ -23,6 +23,10 @@ El agente prepara comandos y mensajes; Manuel los ejecuta salvo encargo expreso.
 13. Volver a main y git pull --ff-only.
 14. Comprobar sincronía y borrar rama local integrada cuando corresponda.
 
+## Tamaño de las PR
+
+Cada PR contiene al menos tres commits, cada uno con un cambio coherente y revisable por separado (por ejemplo, regla o código, pruebas y documentación). No abrir PR de uno o dos commits. Si una tarea no da para tres commits con sentido, ampliar su alcance de forma razonable o agrupar la tarea con otra relacionada; no dividir un cambio de forma artificial. Comprobar con git log main..HEAD --oneline antes de abrir la PR.
+
 ## Convención
 
 Conventional Commits en español. Tipos: feat, fix, docs, test, refactor, style, chore, ci, build y perf.
