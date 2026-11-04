@@ -13,5 +13,6 @@ Cambios completados, no planes futuros. Estos últimos pertenecen al roadmap.
 - Alcance inicial confirmado y decisiones abiertas registradas en docs/STATUS.md.
 - Regla de GitHub Flow: cada PR contiene al menos tres commits coherentes.
 - README reescrito para presentar el proyecto, su arquitectura y su seguridad.
+- Requisitos y versiones del entorno de desarrollo en docs/deployment.md.
 
 La incorporación a un repositorio y la configuración técnica todavía están pendientes.
