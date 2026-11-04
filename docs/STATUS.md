@@ -2,29 +2,41 @@
 
 ## Actualización
 
-2026-11-05 — selección de herramientas documentada en docs/tooling.md (rama docs/tooling-selection, PR pendiente de integrar). Paquete documental inicial publicado en main el mismo día.
+2026-11-05 — alcance inicial confirmado, README reescrito y regla de PR de al menos tres commits documentada (rama docs/confirm-scope, PR pendiente de integrar). La PR #1 (herramientas) ya está integrada en main.
 
 ## Estado comprobado
 
-Se han generado los documentos de este paquete y comprobado su integridad y enlaces locales. No se ha verificado la creación de un repositorio remoto o local del usuario.
-
-Rama y commit del usuario: sin consultar. Documentación pendiente de importar, revisar e integrar por Manuel.
+Repositorio en GitHub con main publicada. Solo hay documentación; no existe código de aplicación.
 
 ## Fase y tarea activa
 
-Fase 0. Revisar e integrar la PR de herramientas y confirmar el alcance inicial.
+Fase 0, a falta de integrar la PR docs/confirm-scope. Con ella integrada, la Fase 0 queda cerrada.
+
+## Alcance confirmado
+
+Alcance de docs/product.md aceptado sin cambios: primer recorrido local (Fase 2) y primera versión publicable (Fase 3). Equipos, alertas, estado público y mantenimiento programado quedan como ampliaciones.
+
+## Decisiones abiertas
+
+Se acuerdan y se registran en docs/decisions/ antes de implementarlas:
+
+1. Intervalo mínimo y máximo de comprobación, y timeout máximo.
+2. Número de fallos consecutivos que abre una incidencia.
+3. Comportamiento de una comprobación ya iniciada cuando se pausa el monitor.
+4. Fórmula y ventana de la disponibilidad.
+5. Las pendientes de docs/architecture.md: sesiones, cliente HTTP, hosting, registro de imágenes, retención y diseño visual.
 
 ## Aplicación y controles
 
 Sin código de aplicación. ESLint, Prettier, Ruff, mypy, tests, Docker, Actions, SonarQube y CD pendientes. No hay despliegue verificado.
 
-## Decisiones
+## Decisiones tomadas
 
-React/TypeScript/Vite; Python/FastAPI; PostgreSQL; API y worker separados; GitHub Flow con commit de merge. Selección de plugins y reparto con Codex en docs/tooling.md; disponibilidad real en el equipo sin verificar.
+React/TypeScript/Vite; Python/FastAPI; PostgreSQL; API y worker separados; GitHub Flow con commit de merge y PR de al menos tres commits. Selección de plugins y reparto con Codex en docs/tooling.md; disponibilidad real en el equipo sin verificar.
 
 ## Siguiente paso
 
-Integrar la PR de herramientas con merge commit, confirmar el alcance inicial y cerrar la Fase 0; después, planificar la Fase 1.
+Integrar la PR docs/confirm-scope con merge commit. Después, planificar la Fase 1: fijar versiones compatibles y requisitos del entorno, empezando por una tarea acotada (por ejemplo, frontend con Vite).
 
 ## Cómo actualizar
 
