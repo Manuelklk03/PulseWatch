@@ -28,5 +28,6 @@ Thumbs.db
 *.log
 .idea/
 .claude/settings.local.json
+.omc/
 
 # No excluir lockfiles, migraciones ni configuración compartida.
