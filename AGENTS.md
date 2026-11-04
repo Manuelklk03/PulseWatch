@@ -61,7 +61,7 @@ La API no ejecuta el bucle de comprobaciones dentro de su proceso web. El worker
 
 ## Git
 
-Seguir docs/git-workflow.md. No desarrollar en main. Una rama por tarea. Conventional Commits en español con título y descripción. El agente prepara comandos y mensajes; Manuel ejecuta commit, push, PR y merge salvo encargo expreso. Usar git add selectivo, PR única por tarea, revisión y checks antes del commit de merge. No crear tags ni releases sin indicación de Manuel.
+Seguir docs/git-workflow.md. No desarrollar en main. Una rama por tarea. Conventional Commits en español con título y descripción. El agente prepara comandos y mensajes; Manuel ejecuta commit, push, PR y merge salvo encargo expreso. Usar git add selectivo, PR única por tarea con al menos tres commits coherentes (nunca PR de uno o dos), revisión y checks antes del commit de merge. No crear tags ni releases sin indicación de Manuel.
 
 ## Continuidad y cierre
 
