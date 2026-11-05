@@ -38,7 +38,7 @@ Codex lee AGENTS.md por su cuenta. Usos previstos:
 - Diagnóstico de causa raíz cuando Claude se atasque.
 - Trabajo en paralelo solo en otra rama o worktree y en otra carpeta (por ejemplo backend y frontend). Nunca el mismo checkout.
 
-Reglas para Codex: no hace commit ni push, no añade dependencias, informa de las comprobaciones ejecutadas y deja STATUS y CHANGELOG para el cierre.
+Reglas para Codex: no hace commit ni push, no añade firmas ni líneas de coautoría en los mensajes, no añade dependencias, informa de las comprobaciones ejecutadas y deja STATUS y CHANGELOG para el cierre.
 
 ## Registro por herramienta
 
