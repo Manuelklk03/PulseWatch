@@ -21,7 +21,15 @@ No se instala PostgreSQL ni psql en el sistema: la base de datos local se ejecut
 
 Sobre Python: una simulación de instalación con uv (sin instalar ni ejecutar) resolvió FastAPI, SQLAlchemy, Alembic, psycopg, pydantic, mypy, ruff y pytest tanto en 3.14 como en 3.13. Se elige 3.13 por ser más madura; se fijará con un archivo .python-version al crear el backend y se revisará con una prueba real.
 
-Versiones de las librerías (Vite, React, TypeScript, FastAPI y el resto) y la imagen de PostgreSQL se fijan al inicializar cada parte, con su archivo de bloqueo.
+### Frontend
+
+Versiones instaladas el 2026-11-05: Vite 8.3.5, React 19.3.1, TypeScript 6.0.3 y Prettier 3.9.10.
+
+TypeScript se queda en la serie 6.0 (`~6.0.3`) y no en la 7.0 que trae la plantilla de Vite: `typescript-eslint` 8.72 declara como compatible solo TypeScript `<6.1.0` y npm rechaza la instalación con TypeScript 7 (error ERESOLVE). No usar `--force`. Revisar cuando `typescript-eslint` admita TypeScript 7.
+
+`npm audit` informa de 10 vulnerabilidades moderadas, todas del mismo aviso de `minimatch` en herramientas de desarrollo. `npm audit --omit=dev` da 0 vulnerabilidades en las dependencias de producción. No se aplica `npm audit fix --force` porque puede romper versiones; se resolverá al actualizar ESLint.
+
+Versiones de las demás librerías (FastAPI y el resto) y la imagen de PostgreSQL se fijan al inicializar cada parte, con su archivo de bloqueo.
 
 ## Local
 
