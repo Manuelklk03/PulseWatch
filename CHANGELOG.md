@@ -16,6 +16,8 @@ Cambios completados, no planes futuros. Estos últimos pertenecen al roadmap.
 - Requisitos y versiones del entorno de desarrollo en docs/deployment.md.
 - Decisión de TypeScript 6.0, aviso de dependencias de desarrollo y scripts del frontend en docs/deployment.md y docs/quality.md.
 
+- Regla de GitHub Flow: commits y merges sin líneas de coautoría ni firmas automáticas.
+
 ### Frontend
 
 - Proyecto base en frontend/ con React, TypeScript estricto y Vite.

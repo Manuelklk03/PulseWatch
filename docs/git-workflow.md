@@ -31,6 +31,8 @@ Cada PR contiene al menos tres commits, cada uno con un cambio coherente y revis
 
 Conventional Commits en español. Tipos: feat, fix, docs, test, refactor, style, chore, ci, build y perf.
 
+Los mensajes de commit y de merge contienen solo título y descripción. No llevan líneas Co-Authored-By ni firmas automáticas de agentes o herramientas. Los commits anteriores a esta regla que las incluyen no se reescriben.
+
 Ejemplo:
 
 ```text
