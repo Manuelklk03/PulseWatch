@@ -14,8 +14,8 @@ Cierre: documentación revisada en main y punto de continuación actualizado.
 ## Fase 1 — Base técnica
 
 - [x] Fijar versiones compatibles y requisitos del entorno.
-- [ ] React, TypeScript y Vite.
-- [ ] ESLint, Prettier y comprobación de tipos.
+- [x] React, TypeScript y Vite.
+- [x] ESLint, Prettier y comprobación de tipos.
 - [ ] FastAPI, Ruff, mypy y pytest.
 - [ ] PostgreSQL y Alembic.
 - [ ] Docker Compose y comprobaciones de salud.

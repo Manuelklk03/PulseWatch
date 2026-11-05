@@ -16,6 +16,20 @@
 
 ESLint y Prettier tienen responsabilidades diferentes. Evitar reglas de formato de ESLint incompatibles con Prettier. Documentar scripts solo después de crearlos y comprobarlos.
 
+## Scripts del frontend
+
+Desde frontend/, comprobados el 2026-11-05:
+
+| Script | Función |
+| --- | --- |
+| npm run dev | Servidor de desarrollo de Vite |
+| npm run lint | ESLint |
+| npm run format | Prettier reescribe los archivos |
+| npm run format:check | Prettier solo comprueba el formato |
+| npm run build | Comprobación de tipos con tsc y compilación con Vite |
+
+Aún no hay tests del frontend ni CI que los ejecute.
+
 ## Pruebas significativas
 
 Unitarias: umbrales, timeout, apertura/cierre de incidencias y fórmula de disponibilidad.

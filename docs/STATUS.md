@@ -2,7 +2,7 @@
 
 ## Actualización
 
-2026-11-05 — Fase 0 cerrada con las PR #1 y #2 integradas en main. Fase 1 iniciada: requisitos del entorno documentados (rama docs/dev-environment, PR pendiente de integrar).
+2026-11-05 — Fase 0 cerrada y requisitos del entorno integrados (PR #1, #2 y #3). Frontend base creado en la rama feature/frontend-scaffold, PR pendiente de integrar.
 
 ## Estado comprobado
 
@@ -12,7 +12,7 @@ Entorno comprobado en el equipo de Manuel: Node 24.21.0, npm 12.1.0, Python 3.14
 
 ## Fase y tarea activa
 
-Fase 1, base técnica. Hecho: versiones y requisitos del entorno. Siguiente tarea: frontend con React, TypeScript y Vite.
+Fase 1, base técnica. Hecho: versiones del entorno, y proyecto base del frontend con React, TypeScript estricto, Vite, ESLint y Prettier. Pendiente del frontend: sustituir la pantalla de ejemplo de Vite por la estructura de PulseWatch (carpetas por funcionalidades y CSS Modules con BEM) y Vitest con Testing Library.
 
 ## Alcance confirmado
 
@@ -39,7 +39,7 @@ React/TypeScript/Vite; Python/FastAPI; PostgreSQL en Docker; Node 24; uv para el
 
 ## Siguiente paso
 
-Integrar la PR docs/dev-environment con merge commit. Después, crear el frontend con Vite en una rama feature/frontend-scaffold, con Manuel escribiendo el código en modo guiado.
+Integrar la PR feature/frontend-scaffold con merge commit. Después, en una rama nueva, limpiar la plantilla de Vite y montar la estructura del frontend con Manuel escribiendo el código en modo guiado.
 
 ## Cómo actualizar
 

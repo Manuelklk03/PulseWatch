@@ -14,5 +14,11 @@ Cambios completados, no planes futuros. Estos últimos pertenecen al roadmap.
 - Regla de GitHub Flow: cada PR contiene al menos tres commits coherentes.
 - README reescrito para presentar el proyecto, su arquitectura y su seguridad.
 - Requisitos y versiones del entorno de desarrollo en docs/deployment.md.
+- Decisión de TypeScript 6.0, aviso de dependencias de desarrollo y scripts del frontend en docs/deployment.md y docs/quality.md.
+
+### Frontend
+
+- Proyecto base en frontend/ con React, TypeScript estricto y Vite.
+- ESLint y Prettier integrados, con los scripts lint, format y format:check.
 
 La incorporación a un repositorio y la configuración técnica todavía están pendientes.
