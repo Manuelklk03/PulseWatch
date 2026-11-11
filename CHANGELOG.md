@@ -18,7 +18,7 @@ Cambios completados, no planes futuros. Estos últimos pertenecen al roadmap.
 
 - Regla de GitHub Flow: commits y merges sin líneas de coautoría ni firmas automáticas.
 - Skills de Claude Code y Codex clasificadas por fase, y reparto de trabajo entre ambos, en docs/tooling.md.
-- Regla de modo guiado: un archivo cada vez, explicado, y las tareas que no son código las hace el agente.
+- Regla de modo guiado: pasos con varios archivos relacionados, cada uno explicado, y las tareas que no son código las hace el agente.
 
 ### Frontend
 

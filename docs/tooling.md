@@ -44,7 +44,7 @@ Cada plugin debe resolver una necesidad concreta. Evitar duplicidades e instrucc
 
 ## Codex
 
-Codex 0.164.0 está instalado y lee AGENTS.md. Su configuración personal pide un estilo de mentor: un archivo cada vez, explicado, sin avanzar hasta entenderlo. Es compatible con el modo guiado de este proyecto.
+Codex 0.164.0 está instalado y lee AGENTS.md. Su configuración personal pide un estilo de mentor: un archivo cada vez, explicado, sin avanzar hasta entenderlo. En este proyecto el modo guiado agrupa varios archivos relacionados por paso, a petición de Manuel; Codex debe seguir esa regla de AGENTS.md.
 
 Skills de Codex (carpeta de skills de Codex):
 
