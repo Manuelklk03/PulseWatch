@@ -2,7 +2,7 @@
 
 ## Actualización
 
-2026-11-05 — Fase 0 cerrada y requisitos del entorno integrados (PR #1, #2 y #3). Frontend base creado en la rama feature/frontend-scaffold, PR pendiente de integrar.
+2026-11-11 — Frontend base integrado en main (PR #4) y regla de commits sin firmas automáticas (PR #5). Selección de skills y reparto con Codex revisados en docs/tooling.md (rama docs/skills-selection, PR pendiente de integrar). La limpieza de la plantilla de Vite está empezada pero sin commitear: rama feature/frontend-structure, cambios guardados en el stash "frontend-structure-wip".
 
 ## Estado comprobado
 
@@ -39,7 +39,7 @@ React/TypeScript/Vite; Python/FastAPI; PostgreSQL en Docker; Node 24; uv para el
 
 ## Siguiente paso
 
-Integrar la PR feature/frontend-scaffold con merge commit. Después, en una rama nueva, limpiar la plantilla de Vite y montar la estructura del frontend con Manuel escribiendo el código en modo guiado.
+Integrar la PR docs/skills-selection. Después, volver a feature/frontend-structure (git stash pop) y montar la estructura del frontend con Manuel escribiendo el código en modo guiado, un archivo cada vez: global.css, App.module.css, App.tsx, main.tsx y la pantalla de monitores con su estado vacío.
 
 ## Cómo actualizar
 
