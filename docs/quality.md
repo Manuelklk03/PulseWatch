@@ -46,6 +46,10 @@ Sin dependencia de webs públicas. Controlar reloj y red en las pruebas que lo n
 
 PR hacia main y push a main: instalación reproducible, lint, formato, tipos, tests y cobertura, build y construcción Docker. Añadir E2E al existir un recorrido ejecutable.
 
+### Estado actual
+
+Existe el workflow .github/workflows/frontend-ci.yml: npm ci, lint, format:check y build del frontend (tipos incluidos en el build), con Node 24, permisos de solo lectura y concurrencia que cancela ejecuciones antiguas. Se activa en PR hacia main y en push a main cuando cambia frontend/ o el propio workflow. Faltan tests y cobertura del frontend, el backend, la construcción Docker y SonarQube. Las acciones usan tags de versión mayor (checkout v7 y setup-node v7); fijarlas por SHA queda pendiente (ver DevSecOps).
+
 Los controles deben ejecutarse sobre el commit vigente de la PR. Fallos no se ocultan con continue-on-error en checks obligatorios.
 
 ## SonarQube
