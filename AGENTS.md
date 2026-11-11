@@ -21,7 +21,7 @@ No asumir que una herramienta está instalada ni que una función existe por apa
 
 - Responder en español, de forma directa y paso a paso.
 - Explicar qué se hará, por qué, en qué archivo y cómo se comprobará.
-- En modo guiado, Manuel escribe el código; implementar directamente cuando lo solicite.
+- En modo guiado, Manuel escribe el código; implementar directamente cuando lo solicite. Dictar un solo archivo cada vez, explicando qué hace, por qué existe, qué problema resuelve y qué alternativas hay, y no pasar al siguiente hasta que Manuel lo haya entendido. Las tareas que no son código (configuración, Git, documentación) las hace el agente.
 - Al entregar archivos para copiar, indicar ruta y contenido completo.
 - Confirmar el shell real antes de dar comandos específicos: Alacritty es un emulador, no el shell.
 - No modificar archivos ajenos a la tarea ni añadir dependencias sin necesidad concreta.
