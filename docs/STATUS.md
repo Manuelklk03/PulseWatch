@@ -2,7 +2,7 @@
 
 ## Actualización
 
-2026-11-11 — Frontend base integrado en main (PR #4) y regla de commits sin firmas automáticas (PR #5). Selección de skills y reparto con Codex revisados en docs/tooling.md (rama docs/skills-selection, PR pendiente de integrar). La limpieza de la plantilla de Vite está empezada pero sin commitear: rama feature/frontend-structure, cambios guardados en el stash "frontend-structure-wip".
+2026-11-11 — Frontend base (PR #4), regla de commits sin firmas (PR #5) y selección de skills con reparto para Codex (PR #6) integrados en main. CI del frontend preparada por Codex en la rama chore/frontend-ci, PR pendiente de integrar. La estructura del frontend está empezada en feature/frontend-structure.
 
 ## Estado comprobado
 
@@ -31,7 +31,7 @@ Se acuerdan y se registran en docs/decisions/ antes de implementarlas:
 
 ## Aplicación y controles
 
-Sin código de aplicación. ESLint, Prettier, Ruff, mypy, tests, Docker, Actions, SonarQube y CD pendientes. No hay despliegue verificado.
+Frontend base con ESLint, Prettier y CI de GitHub Actions (lint, formato y build); la CI se verifica en la propia PR. Pendientes: tests del frontend, backend con Ruff, mypy y pytest, Docker, SonarQube y CD. No hay despliegue verificado.
 
 ## Decisiones tomadas
 
@@ -39,7 +39,7 @@ React/TypeScript/Vite; Python/FastAPI; PostgreSQL en Docker; Node 24; uv para el
 
 ## Siguiente paso
 
-Integrar la PR docs/skills-selection. Después, volver a feature/frontend-structure (git stash pop) y montar la estructura del frontend con Manuel escribiendo el código en modo guiado, un archivo cada vez: global.css, App.module.css, App.tsx, main.tsx y la pantalla de monitores con su estado vacío.
+Integrar la PR chore/frontend-ci con merge commit. Después, montar la estructura del frontend en feature/frontend-structure con Manuel escribiendo el código en modo guiado, un archivo cada vez: global.css, App.module.css, App.tsx, main.tsx y la pantalla de monitores con su estado vacío.
 
 ## Cómo actualizar
 

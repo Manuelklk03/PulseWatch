@@ -24,5 +24,6 @@ Cambios completados, no planes futuros. Estos últimos pertenecen al roadmap.
 
 - Proyecto base en frontend/ con React, TypeScript estricto y Vite.
 - ESLint y Prettier integrados, con los scripts lint, format y format:check.
+- CI de GitHub Actions del frontend (lint, formato y build), preparada por Codex y revisada por Claude.
 
 La incorporación a un repositorio y la configuración técnica todavía están pendientes.
