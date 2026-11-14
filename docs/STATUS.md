@@ -2,7 +2,7 @@
 
 ## Actualización
 
-2026-11-14 — Frontend con estructura por funcionalidades y pantalla de monitores integrado en main (PR #4 a #8). Flujo de Git cambiado a ramas de integración por área con PR de tarea hacia ellas (rama docs/integration-branch-workflow, PR pendiente de integrar).
+2026-11-14 — Historial de main limpiado (sin merges de main dentro de ramas) y área feature/frontend-testing abierta. Vitest configurado en la rama chore/vitest-setup, PR hacia feature/frontend-testing pendiente de integrar.
 
 ## Estado comprobado
 
@@ -12,7 +12,7 @@ Entorno comprobado en el equipo de Manuel: Node 24.21.0, npm 12.1.0, Python 3.14
 
 ## Fase y tarea activa
 
-Fase 1, base técnica. Hecho: versiones del entorno, frontend con React, TypeScript estricto, Vite, ESLint, Prettier, CI y estructura por funcionalidades (app, features, shared) con CSS Modules y BEM. Pendiente del frontend: Vitest con Testing Library. Después, el backend.
+Fase 1, base técnica. Hecho: versiones del entorno, frontend con React, TypeScript estricto, Vite, ESLint, Prettier, CI, estructura por funcionalidades (app, features, shared) con CSS Modules y BEM, y Vitest con Testing Library configurado. Pendiente del frontend: primeras pruebas y su paso en la CI. Después, el backend.
 
 ## Alcance confirmado
 
@@ -39,7 +39,7 @@ React/TypeScript/Vite; Python/FastAPI; PostgreSQL en Docker; Node 24; uv para el
 
 ## Siguiente paso
 
-Integrar la PR docs/integration-branch-workflow (cambio suelto, directa a main). Después abrir el área feature/frontend-testing como rama de integración desde main, con las tareas chore/vitest-setup (Vitest, Testing Library, script npm test y paso en la CI), test/empty-state y test/monitors-page, cada una con su PR de al menos tres commits hacia la rama de integración. Al terminar, PR final hacia main.
+Integrar la PR chore/vitest-setup hacia feature/frontend-testing. Después, las tareas test/empty-state (primera prueba, con el paso npm test en la CI) y test/monitors-page; las pruebas las escribe Manuel con la explicación de Claude. Al terminar, PR final hacia main.
 
 ## Cómo actualizar
 
