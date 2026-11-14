@@ -1,0 +1,27 @@
+.app {
+  min-height: 100vh;
+}
+
+.app__header {
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.app__title {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.app__main {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: var(--space-4);
+}
+
+@media (min-width: 48rem) {
+  .app__header,
+  .app__main {
+    padding: var(--space-6);
+  }
+}

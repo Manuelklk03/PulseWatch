@@ -18,12 +18,15 @@ Cambios completados, no planes futuros. Estos últimos pertenecen al roadmap.
 
 - Regla de GitHub Flow: commits y merges sin líneas de coautoría ni firmas automáticas.
 - Skills de Claude Code y Codex clasificadas por fase, y reparto de trabajo entre ambos, en docs/tooling.md.
-- Regla de modo guiado: un archivo cada vez, explicado, y las tareas que no son código las hace el agente.
+- Regla de modo guiado: pasos con varios archivos relacionados, cada uno explicado, y las tareas que no son código las hace el agente.
 
 ### Frontend
 
 - Proyecto base en frontend/ con React, TypeScript estricto y Vite.
 - ESLint y Prettier integrados, con los scripts lint, format y format:check.
 - CI de GitHub Actions del frontend (lint, formato y build), preparada por Codex y revisada por Claude.
+- Estructura por funcionalidades (app, features, shared), CSS Modules con BEM, variables CSS y foco visible.
+- Pantalla de monitores con cabecera accesible y estado vacío reutilizable (EmptyState).
+- Fin de línea LF en todo el repositorio con .gitattributes.
 
 La incorporación a un repositorio y la configuración técnica todavía están pendientes.
