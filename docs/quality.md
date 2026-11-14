@@ -27,8 +27,10 @@ Desde frontend/, comprobados el 2026-11-05:
 | npm run format | Prettier reescribe los archivos |
 | npm run format:check | Prettier solo comprueba el formato |
 | npm run build | Comprobación de tipos con tsc y compilación con Vite |
+| npm test | Vitest: ejecuta todas las pruebas una vez |
+| npm run test:watch | Vitest en modo vigilancia, para desarrollar |
 
-Aún no hay tests del frontend ni CI que los ejecute.
+Vitest está configurado (entorno jsdom, Testing Library y matchers de jest-dom en src/test/setup.ts), pero aún no hay pruebas ni paso de CI que las ejecute: sin ningún archivo de prueba, npm test termina con error, así que el paso se añade a la CI junto con la primera prueba.
 
 ## Pruebas significativas
 
