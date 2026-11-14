@@ -2,7 +2,7 @@
 
 ## Actualización
 
-2026-11-14 — Frontend base (PR #4), regla de commits sin firmas (PR #5), selección de skills con reparto para Codex (PR #6) y CI del frontend (PR #7) integrados en main. Estructura del frontend y pantalla de monitores con estado vacío hechas en la rama feature/frontend-structure, PR pendiente de integrar.
+2026-11-14 — Frontend con estructura por funcionalidades y pantalla de monitores integrado en main (PR #4 a #8). Flujo de Git cambiado a ramas de integración por área con PR de tarea hacia ellas (rama docs/integration-branch-workflow, PR pendiente de integrar).
 
 ## Estado comprobado
 
@@ -35,11 +35,11 @@ Frontend con ESLint, Prettier y CI de GitHub Actions (lint, formato y build) ver
 
 ## Decisiones tomadas
 
-React/TypeScript/Vite; Python/FastAPI; PostgreSQL en Docker; Node 24; uv para el backend; API y worker separados; GitHub Flow con commit de merge y PR de al menos tres commits. Selección de plugins y reparto con Codex en docs/tooling.md; disponibilidad real en el equipo sin verificar.
+React/TypeScript/Vite; Python/FastAPI; PostgreSQL en Docker; Node 24; uv para el backend; API y worker separados; GitHub Flow con ramas de integración por área, PR de tarea hacia ellas, PR final a main con commit de merge, y toda PR con al menos tres commits. Selección de plugins y reparto con Codex en docs/tooling.md; disponibilidad real en el equipo sin verificar.
 
 ## Siguiente paso
 
-Integrar la PR feature/frontend-structure con merge commit. Después, Vitest y Testing Library en el frontend (primera prueba: EmptyState), en bloque de varios archivos guiado por Claude.
+Integrar la PR docs/integration-branch-workflow (cambio suelto, directa a main). Después abrir el área feature/frontend-testing como rama de integración desde main, con las tareas chore/vitest-setup (Vitest, Testing Library, script npm test y paso en la CI), test/empty-state y test/monitors-page, cada una con su PR de al menos tres commits hacia la rama de integración. Al terminar, PR final hacia main.
 
 ## Cómo actualizar
 
