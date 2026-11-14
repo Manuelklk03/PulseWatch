@@ -35,7 +35,9 @@ El trabajo se organiza por áreas, con dos niveles de rama:
 
 ## Tamaño de las PR
 
-Cada PR contiene al menos tres commits, cada uno con un cambio coherente y revisable por separado (por ejemplo, regla o código, pruebas y documentación). No abrir PR de uno o dos commits. Si una tarea no da para tres commits con sentido, ampliar su alcance de forma razonable o agrupar la tarea con otra relacionada; no dividir un cambio de forma artificial. Comprobar con git log main..HEAD --oneline antes de abrir la PR.
+Cada PR contiene al menos tres commits, cada uno con un cambio coherente y revisable por separado (por ejemplo, regla o código, pruebas y documentación). La regla vale para todas: las de tarea hacia la rama de integración, la final hacia main y las de cambios sueltos. No abrir PR de uno o dos commits. Si una tarea no da para tres commits con sentido, ampliar su alcance de forma razonable o agrupar la tarea con otra relacionada; no dividir un cambio de forma artificial. Comprobar con git log RAMA_BASE..HEAD --oneline antes de abrir la PR, donde RAMA_BASE es la rama hacia la que va la PR.
+
+Como las PR de tarea no van hacia main, los checks de CI deben ejecutarse en PR hacia cualquier rama, no solo hacia main.
 
 ## Convención
 
