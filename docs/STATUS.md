@@ -6,7 +6,7 @@
 
 ## Estado comprobado
 
-Repositorio en GitHub con main publicada. Solo hay documentación; no existe código de aplicación.
+Repositorio en GitHub con main publicada. Hay documentación y un frontend con una pantalla de monitores en estado vacío; no existe backend ni tests.
 
 Entorno comprobado en el equipo de Manuel: Node 24.21.0, npm 12.1.0, Python 3.14.0 y 3.13, uv 0.13.4, Docker 29.9.2, Compose 5.6.1 y Git 2.51.0. Detalle y decisiones en docs/deployment.md.
 
