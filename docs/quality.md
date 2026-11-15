@@ -30,7 +30,7 @@ Desde frontend/, comprobados el 2026-11-05:
 | npm test | Vitest: ejecuta todas las pruebas una vez |
 | npm run test:watch | Vitest en modo vigilancia, para desarrollar |
 
-Vitest está configurado (entorno jsdom, Testing Library y matchers de jest-dom en src/test/setup.ts), pero aún no hay pruebas ni paso de CI que las ejecute: sin ningún archivo de prueba, npm test termina con error, así que el paso se añade a la CI junto con la primera prueba.
+Vitest está configurado (entorno jsdom, Testing Library y matchers de jest-dom en src/test/setup.ts) y hay pruebas junto a los componentes (EmptyState y MonitorsPage, 3 pruebas), que ejecuta la CI. Sin cobertura medida todavía.
 
 ## Pruebas significativas
 
@@ -50,7 +50,7 @@ PR hacia main y push a main: instalación reproducible, lint, formato, tipos, te
 
 ### Estado actual
 
-Existe el workflow .github/workflows/frontend-ci.yml: npm ci, lint, format:check y build del frontend (tipos incluidos en el build), con Node 24, permisos de solo lectura y concurrencia que cancela ejecuciones antiguas. Se activa en PR hacia cualquier rama (las de tarea van hacia ramas de integración) y en push a main, cuando cambia frontend/ o el propio workflow. Faltan tests y cobertura del frontend, el backend, la construcción Docker y SonarQube. Las acciones usan tags de versión mayor (checkout v7 y setup-node v7); fijarlas por SHA queda pendiente (ver DevSecOps).
+Existe el workflow .github/workflows/frontend-ci.yml: npm ci, lint, format:check, npm test y build del frontend (tipos incluidos en el build), con Node 24, permisos de solo lectura y concurrencia que cancela ejecuciones antiguas. Se activa en PR hacia cualquier rama (las de tarea van hacia ramas de integración) y en push a main, cuando cambia frontend/ o el propio workflow. Faltan la cobertura del frontend, el backend, la construcción Docker y SonarQube. Las acciones usan tags de versión mayor (checkout v7 y setup-node v7); fijarlas por SHA queda pendiente (ver DevSecOps).
 
 Los controles deben ejecutarse sobre el commit vigente de la PR. Fallos no se ocultan con continue-on-error en checks obligatorios.
 
