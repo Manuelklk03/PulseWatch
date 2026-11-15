@@ -2,7 +2,7 @@
 
 ## Actualización
 
-2026-11-14 — Historial de main limpiado (sin merges de main dentro de ramas) y área feature/frontend-testing abierta. Vitest configurado en la rama chore/vitest-setup, PR hacia feature/frontend-testing pendiente de integrar.
+2026-11-15 — Área feature/frontend-testing completa: Vitest configurado (PR #10) y primeras pruebas con paso npm test en la CI (rama test/frontend-components). Falta la PR final hacia main.
 
 ## Estado comprobado
 
@@ -12,7 +12,7 @@ Entorno comprobado en el equipo de Manuel: Node 24.21.0, npm 12.1.0, Python 3.14
 
 ## Fase y tarea activa
 
-Fase 1, base técnica. Hecho: versiones del entorno, frontend con React, TypeScript estricto, Vite, ESLint, Prettier, CI, estructura por funcionalidades (app, features, shared) con CSS Modules y BEM, y Vitest con Testing Library configurado. Pendiente del frontend: primeras pruebas y su paso en la CI. Después, el backend.
+Fase 1, base técnica. Hecho: versiones del entorno y frontend completo para esta fase (React, TypeScript estricto, Vite, ESLint, Prettier, estructura por funcionalidades con CSS Modules y BEM, Vitest con Testing Library y las primeras pruebas, todo en la CI). Pendiente de la fase: backend (FastAPI, PostgreSQL, Alembic, Ruff, mypy, pytest), Docker Compose, SonarQube con cobertura y protección de main.
 
 ## Alcance confirmado
 
@@ -39,7 +39,7 @@ React/TypeScript/Vite; Python/FastAPI; PostgreSQL en Docker; Node 24; uv para el
 
 ## Siguiente paso
 
-Integrar la PR chore/vitest-setup hacia feature/frontend-testing. Después, las tareas test/empty-state (primera prueba, con el paso npm test en la CI) y test/monitors-page; las pruebas las escribe Manuel con la explicación de Claude. Al terminar, PR final hacia main.
+Integrar test/frontend-components en feature/frontend-testing y abrir la PR final de esa rama hacia main. Después, elegir con Manuel el siguiente área de la Fase 1: backend (FastAPI con uv) o Docker Compose.
 
 ## Cómo actualizar
 
