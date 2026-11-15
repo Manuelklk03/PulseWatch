@@ -29,5 +29,7 @@ Cambios completados, no planes futuros. Estos últimos pertenecen al roadmap.
 - Estructura por funcionalidades (app, features, shared), CSS Modules con BEM, variables CSS y foco visible.
 - Pantalla de monitores con cabecera accesible y estado vacío reutilizable (EmptyState).
 - Fin de línea LF en todo el repositorio con .gitattributes.
+- Vitest, jsdom y Testing Library configurados, con los scripts test y test:watch.
+- Primeras pruebas (EmptyState y MonitorsPage) y paso npm test en la CI del frontend.
 
 La incorporación a un repositorio y la configuración técnica todavía están pendientes.
