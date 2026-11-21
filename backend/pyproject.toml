@@ -1,6 +1,7 @@
 [project]
-name = "backend"
+name = "pulsewatch-backend"
 version = "0.1.0"
+description = "API y worker de PulseWatch"
 requires-python = ">=3.13"
 dependencies = [
     "fastapi>=0.165.0",
@@ -9,8 +10,27 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "httpx>=0.28.1",
+    "httpx2>=2.16.2",
     "mypy>=2.4.1",
     "pytest>=9.2.0",
     "ruff>=0.17.6",
 ]
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.lint]
+# E/F: errores y fallos básicos, I: orden de imports, B: errores probables,
+# UP: sintaxis moderna de Python.
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+files = ["app", "tests"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Permite escribir "from app.main import app" en las pruebas.
+pythonpath = ["."]
