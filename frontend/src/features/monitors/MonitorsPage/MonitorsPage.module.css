@@ -28,3 +28,9 @@
   font: inherit; /* por defecto un botón usa la letra del sistema; así usa la de la página */
   cursor: pointer; /* manita al pasar el ratón */
 }
+
+/* Zona del botón "Añadir monitor" y zona del formulario, con aire debajo. */
+.monitorsPage__actions,
+.monitorsPage__form {
+  margin-bottom: var(--space-4);
+}

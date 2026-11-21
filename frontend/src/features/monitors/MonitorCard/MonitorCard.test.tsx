@@ -32,6 +32,7 @@ describe('MonitorCard', () => {
   // it.each ejecuta LA MISMA prueba con varios datos: genera 3 pruebas con
   // un solo bloque. Cada fila es [estado, texto esperado].
   it.each([
+    ['pending', 'Pendiente'],
     ['up', 'Operativo'],
     ['down', 'Caído'],
     ['paused', 'Pausado'],

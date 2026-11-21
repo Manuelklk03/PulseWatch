@@ -2,7 +2,7 @@
 
 ## Actualización
 
-2026-11-19 — Área feature/frontend-testing integrada en main (PR #12). Área feature/frontend-monitors-ui abierta: la lista de monitores con sus cuatro estados está hecha en la rama feature/monitor-list, PR hacia la rama de integración pendiente de integrar.
+2026-11-21 — Formulario de crear monitores hecho en la rama feature/monitor-form (PR hacia feature/frontend-monitors-ui pendiente de integrar). Con él, el área feature/frontend-monitors-ui queda completa y su PR final hacia main está pendiente.
 
 ## Estado comprobado
 
@@ -12,7 +12,7 @@ Entorno comprobado en el equipo de Manuel: Node 24.21.0, npm 12.1.0, Python 3.14
 
 ## Fase y tarea activa
 
-Fase 1, base técnica. Hecho: versiones del entorno y frontend de esta fase (Vite, TypeScript estricto, ESLint, Prettier, Vitest, CI, estructura por funcionalidades, y la lista de monitores con los estados de carga, error, vacío y éxito sobre datos de ejemplo). Pendiente de la fase: formulario de crear monitores, backend (FastAPI, PostgreSQL, Alembic, Ruff, mypy, pytest), Docker Compose, SonarQube con cobertura y protección de main.
+Fase 1, base técnica. Hecho: versiones del entorno y frontend de esta fase (Vite, TypeScript estricto, ESLint, Prettier, Vitest, CI, estructura por funcionalidades, lista de monitores con los estados de carga, error, vacío y éxito, y formulario accesible de crear monitores, todo sobre datos de ejemplo). Pendiente de la fase: backend (FastAPI, PostgreSQL, Alembic, Ruff, mypy, pytest), Docker Compose, SonarQube con cobertura y protección de main.
 
 ## Alcance confirmado
 
@@ -22,7 +22,7 @@ Alcance de docs/product.md aceptado sin cambios: primer recorrido local (Fase 2)
 
 Se acuerdan y se registran en docs/decisions/ antes de implementarlas:
 
-1. Intervalo mínimo y máximo de comprobación, y timeout máximo.
+1. Intervalo mínimo y máximo de comprobación, y timeout máximo. El formulario usa de forma provisional 30 a 3600 segundos (constantes en validateMonitorForm.ts); el backend tendrá la validación real.
 2. Número de fallos consecutivos que abre una incidencia.
 3. Comportamiento de una comprobación ya iniciada cuando se pausa el monitor.
 4. Fórmula y ventana de la disponibilidad.
@@ -39,7 +39,7 @@ React/TypeScript/Vite; Python/FastAPI; PostgreSQL en Docker; Node 24; uv para el
 
 ## Siguiente paso
 
-Integrar feature/monitor-list en feature/frontend-monitors-ui. Después, en una rama de tarea nueva, el formulario de crear monitores con validación, escrito por Manuel con la explicación de Claude. Al terminar el área, PR final hacia main.
+Integrar feature/monitor-form en feature/frontend-monitors-ui y abrir la PR final de esa rama hacia main. Después, abrir el área feature/backend-base con FastAPI y uv (Python 3.13 a verificar con una prueba real), empezando por un endpoint de salud con su prueba, que escribirá Manuel con la explicación de Claude.
 
 ## Cómo actualizar
 

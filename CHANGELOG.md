@@ -29,6 +29,9 @@ Cambios completados, no planes futuros. Estos últimos pertenecen al roadmap.
 - Estructura por funcionalidades (app, features, shared), CSS Modules con BEM, variables CSS y foco visible.
 - Lista de monitores con los estados de carga, error con reintento, vacío y éxito, sobre datos de ejemplo provisionales aislados en monitorsApi.ts.
 - Componentes MonitorCard y MonitorList, y hook useMonitors; cada componente en su propia carpeta.
+- Formulario accesible de crear monitores: campos controlados con etiquetas asociadas, aria-invalid y aria-describedby, foco al primer error y sin doble envío.
+- Validación del formulario como lógica pura (nombre, dirección http o https sin credenciales e intervalo), con límites provisionales de 30 a 3600 segundos.
+- Estado pending (Pendiente) para monitores aún no comprobados.
 - Fin de línea LF en todo el repositorio con .gitattributes.
 - Vitest, jsdom y Testing Library configurados, con los scripts test y test:watch.
 - Pruebas de EmptyState, MonitorCard y MonitorsPage (10 en total) ejecutadas en la CI del frontend, con user-event para simular la interacción.

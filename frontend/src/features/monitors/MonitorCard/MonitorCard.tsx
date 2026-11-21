@@ -2,6 +2,7 @@ import styles from './MonitorCard.module.css'
 import type { Monitor, MonitorStatus } from '../types'
 
 const STATUS_LABELS: Record<MonitorStatus, string> = {
+  pending: 'Pendiente',
   up: 'Operativo',
   down: 'Caído',
   paused: 'Pausado',
