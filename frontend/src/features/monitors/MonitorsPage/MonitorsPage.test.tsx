@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { MonitorsPage } from './MonitorsPage'
-import { listMonitors } from '../monitorsApi'
+import { listMonitors, createMonitor } from '../monitorsApi'
 import type { Monitor } from '../types'
 
 // MOCK: sustituye el archivo monitorsApi por una versión FALSA cuyas
@@ -16,6 +16,7 @@ vi.mock('../monitorsApi')
 // Le decimos a TypeScript que listMonitors ahora es un mock, para poder usar
 // .mockResolvedValue(...) sin que se queje.
 const listMonitorsMock = vi.mocked(listMonitors)
+const createMonitorMock = vi.mocked(createMonitor)
 
 // Un monitor de prueba, reutilizado por varias pruebas.
 const webMonitor: Monitor = {
@@ -96,5 +97,50 @@ describe('MonitorsPage', () => {
     await user.click(screen.getByRole('button', { name: 'Reintentar' }))
 
     expect(await screen.findByText('Aún no hay monitores')).toBeInTheDocument()
+  })
+  it('crea un monitor desde el formulario y recarga la lista', async () => {
+    const user = userEvent.setup()
+    // Primera carga: lista vacía. Tras crear, la recarga ya trae el monitor.
+    listMonitorsMock
+      .mockResolvedValueOnce([])
+      .mockResolvedValueOnce([webMonitor])
+    createMonitorMock.mockResolvedValue(webMonitor)
+
+    render(<MonitorsPage />)
+
+    await user.click(screen.getByRole('button', { name: 'Añadir monitor' }))
+    await user.type(screen.getByLabelText('Nombre'), 'Web principal')
+    await user.type(screen.getByLabelText('Dirección'), 'https://example.com')
+    await user.click(screen.getByRole('button', { name: 'Crear monitor' }))
+
+    expect(createMonitorMock).toHaveBeenCalledWith({
+      name: 'Web principal',
+      url: 'https://example.com',
+      intervalSeconds: 60,
+    })
+    expect(
+      await screen.findByRole('heading', { name: 'Web principal' }),
+    ).toBeInTheDocument()
+    // El formulario se ha cerrado.
+    expect(screen.queryByRole('form')).not.toBeInTheDocument()
+  })
+
+  it('cierra el formulario al cancelar', async () => {
+    const user = userEvent.setup()
+    listMonitorsMock.mockResolvedValue([])
+
+    render(<MonitorsPage />)
+
+    await user.click(screen.getByRole('button', { name: 'Añadir monitor' }))
+    expect(
+      screen.getByRole('form', { name: 'Nuevo monitor' }),
+    ).toBeInTheDocument()
+
+    await user.click(screen.getByRole('button', { name: 'Cancelar' }))
+
+    expect(screen.queryByRole('form')).not.toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: 'Añadir monitor' }),
+    ).toBeInTheDocument()
   })
 })

@@ -27,11 +27,11 @@ export function useMonitors() {
     }
   }, [attempt])
 
-  function retry() {
+  function reload() {
     setState({ status: 'loading' })
 
     setAttempt((current) => current + 1)
   }
 
-  return { state, retry }
+  return { state, reload }
 }
