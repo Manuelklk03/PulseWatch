@@ -1,0 +1,76 @@
+/* BLOQUE: el formulario entero, con aspecto de tarjeta. */
+.monitorForm {
+  display: grid; /* los campos se apilan en una columna */
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+.monitorForm__title {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+/* Un campo = etiqueta + caja + ayuda + error. */
+.monitorForm__field {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.monitorForm__label {
+  font-weight: 600;
+}
+
+.monitorForm__input {
+  padding: var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font: inherit; /* usa la misma letra y tamaño que la página */
+}
+
+/* El borde rojo sale del atributo aria-invalid, no de una clase aparte:
+   así el estilo y la accesibilidad no se pueden desincronizar. */
+.monitorForm__input[aria-invalid='true'] {
+  border-color: #a40e26;
+}
+
+.monitorForm__hint {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.monitorForm__error {
+  margin: 0;
+  color: #a40e26;
+  font-size: 0.875rem;
+}
+
+.monitorForm__actions {
+  display: flex;
+  flex-wrap: wrap; /* en pantallas estrechas los botones bajan a otra línea */
+  gap: var(--space-2);
+}
+
+.monitorForm__button {
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius);
+  background: var(--color-accent);
+  color: #ffffff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.monitorForm__button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* MODIFICADOR BEM: botón secundario (borde, sin relleno). */
+.monitorForm__button--secondary {
+  background: var(--color-surface);
+  color: var(--color-accent);
+}
