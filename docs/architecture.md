@@ -9,7 +9,7 @@ Un repositorio con frontend y backend. API y worker comparten el código necesar
 | Ruta | Responsabilidad |
 | --- | --- |
 | frontend/ | React, TypeScript y Vite |
-| backend/ | FastAPI, dominio, persistencia, worker y pruebas |
+| backend/ | FastAPI, dominio, persistencia, worker y pruebas (código en app/, pruebas en tests/) |
 | docs/ | Documentación y decisiones |
 | .github/ | Plantillas y workflows reales cuando existan |
 | compose.yaml | Entorno local cuando se implemente |

@@ -32,6 +32,20 @@ Desde frontend/, comprobados el 2026-11-05:
 
 Vitest está configurado (entorno jsdom, Testing Library y matchers de jest-dom en src/test/setup.ts) y hay pruebas junto a los componentes (EmptyState, MonitorCard, MonitorForm, MonitorsPage y la validación del formulario, 31 pruebas, con user-event para simular clics), que ejecuta la CI. Sin cobertura medida todavía.
 
+## Scripts del backend
+
+Desde backend/, comprobados el 2026-11-21 con Python 3.13.7:
+
+| Comando | Función |
+| --- | --- |
+| uv sync --locked | Instala las dependencias exactas de uv.lock |
+| uv run ruff check . | Lint con Ruff |
+| uv run ruff format --check . | Comprueba el formato con Ruff |
+| uv run mypy | Tipos en modo estricto sobre app y tests |
+| uv run pytest | Pruebas |
+
+Aún no hay pruebas ni paso de CI del backend: sin ningún archivo de prueba, pytest termina con error, así que el paso se añade a la CI junto con la primera prueba.
+
 ## Pruebas significativas
 
 Unitarias: umbrales, timeout, apertura/cierre de incidencias y fórmula de disponibilidad.
