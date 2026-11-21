@@ -1,4 +1,4 @@
-import { MonitorsPage } from '../features/monitors/MonitorsPage'
+import { MonitorsPage } from '../features/monitors/MonitorsPage/MonitorsPage'
 
 import styles from './App.module.css'
 

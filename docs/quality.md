@@ -30,7 +30,7 @@ Desde frontend/, comprobados el 2026-11-05:
 | npm test | Vitest: ejecuta todas las pruebas una vez |
 | npm run test:watch | Vitest en modo vigilancia, para desarrollar |
 
-Vitest está configurado (entorno jsdom, Testing Library y matchers de jest-dom en src/test/setup.ts) y hay pruebas junto a los componentes (EmptyState y MonitorsPage, 3 pruebas), que ejecuta la CI. Sin cobertura medida todavía.
+Vitest está configurado (entorno jsdom, Testing Library y matchers de jest-dom en src/test/setup.ts) y hay pruebas junto a los componentes (EmptyState, MonitorCard, MonitorForm, MonitorsPage y la validación del formulario, 31 pruebas, con user-event para simular clics), que ejecuta la CI. Sin cobertura medida todavía.
 
 ## Pruebas significativas
 

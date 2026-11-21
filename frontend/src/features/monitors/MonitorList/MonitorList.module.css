@@ -1,0 +1,7 @@
+.monitorList {
+  display: grid; /* cuadrícula; con una sola columna apila las tarjetas */
+  gap: var(--space-4); /* separación entre tarjetas */
+  margin: 0; /* un <ul> trae margen y sangría por defecto: los quitamos */
+  padding: 0;
+  list-style: none; /* sin viñetas (puntos) */
+}
