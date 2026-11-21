@@ -2,17 +2,17 @@
 
 ## Actualización
 
-2026-11-21 — Formulario de crear monitores hecho en la rama feature/monitor-form (PR hacia feature/frontend-monitors-ui pendiente de integrar). Con él, el área feature/frontend-monitors-ui queda completa y su PR final hacia main está pendiente.
+2026-11-21 — Interfaz de monitores integrada en main (PR #13 a #15). Área feature/backend-base abierta: proyecto del backend con uv, Python 3.13, FastAPI, Ruff, mypy estricto y pytest configurados en la rama chore/backend-setup, PR hacia la rama de integración pendiente de integrar.
 
 ## Estado comprobado
 
-Repositorio en GitHub con main publicada. Hay documentación y un frontend con pruebas y CI; la pantalla de monitores usa datos de ejemplo provisionales. No existe backend.
+Repositorio en GitHub con main publicada. Hay documentación y un frontend con pruebas y CI; la pantalla de monitores usa datos de ejemplo provisionales. El backend tiene solo la configuración, sin endpoints.
 
 Entorno comprobado en el equipo de Manuel: Node 24.21.0, npm 12.1.0, Python 3.14.0 y 3.13, uv 0.13.4, Docker 29.9.2, Compose 5.6.1 y Git 2.51.0. Detalle y decisiones en docs/deployment.md.
 
 ## Fase y tarea activa
 
-Fase 1, base técnica. Hecho: versiones del entorno y frontend de esta fase (Vite, TypeScript estricto, ESLint, Prettier, Vitest, CI, estructura por funcionalidades, lista de monitores con los estados de carga, error, vacío y éxito, y formulario accesible de crear monitores, todo sobre datos de ejemplo). Pendiente de la fase: backend (FastAPI, PostgreSQL, Alembic, Ruff, mypy, pytest), Docker Compose, SonarQube con cobertura y protección de main.
+Fase 1, base técnica. Hecho: versiones del entorno y frontend de esta fase (Vite, TypeScript estricto, ESLint, Prettier, Vitest, CI, estructura por funcionalidades, lista de monitores con los estados de carga, error, vacío y éxito, y formulario accesible de crear monitores, todo sobre datos de ejemplo). Backend en curso (uv, FastAPI, Ruff, mypy y pytest configurados). Pendiente de la fase: endpoint de salud, CI del backend, PostgreSQL, Alembic, Docker Compose, SonarQube con cobertura y protección de main.
 
 ## Alcance confirmado
 
@@ -27,11 +27,11 @@ Se acuerdan y se registran en docs/decisions/ antes de implementarlas:
 3. Comportamiento de una comprobación ya iniciada cuando se pausa el monitor.
 4. Fórmula y ventana de la disponibilidad.
 5. Las pendientes de docs/architecture.md: sesiones, cliente HTTP, hosting, registro de imágenes, retención y diseño visual.
-6. Python 3.13 como versión objetivo: verificar con una prueba real al crear el backend.
+6. Python 3.13.7 verificado en local con ruff, mypy y pytest; falta confirmarlo en la CI del backend.
 
 ## Aplicación y controles
 
-Frontend con ESLint, Prettier y CI de GitHub Actions (lint, formato y build) verificada en la PR #7. Pendientes: tests del frontend, backend con Ruff, mypy y pytest, Docker, SonarQube y CD. No hay despliegue verificado.
+Frontend con ESLint, Prettier y CI de GitHub Actions (lint, formato y build) verificada en la PR #7. Backend con Ruff, mypy estricto y pytest configurados en local, aún sin CI propia. Pendientes: CI del backend, PostgreSQL y Alembic, Docker, SonarQube y CD. No hay despliegue verificado.
 
 ## Decisiones tomadas
 
@@ -39,7 +39,7 @@ React/TypeScript/Vite; Python/FastAPI; PostgreSQL en Docker; Node 24; uv para el
 
 ## Siguiente paso
 
-Integrar feature/monitor-form en feature/frontend-monitors-ui y abrir la PR final de esa rama hacia main. Después, abrir el área feature/backend-base con FastAPI y uv (Python 3.13 a verificar con una prueba real), empezando por un endpoint de salud con su prueba, que escribirá Manuel con la explicación de Claude.
+Integrar chore/backend-setup en feature/backend-base. Después, el primer endpoint GET /health con su prueba de pytest, escrito por Manuel con la explicación de Claude, junto con el paso de CI del backend. Al terminar el área, PR final hacia main.
 
 ## Cómo actualizar
 
