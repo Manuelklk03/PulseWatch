@@ -1,7 +1,7 @@
-import type { Monitor } from './types'
+import type { Monitor, NewMonitor } from './types'
 
 // Datos de ejemplo provisionales: se sustituyen por la llamada a la API en la Fase 2.
-const SAMPLE_MONITORS: Monitor[] = [
+const monitors: Monitor[] = [
   {
     id: '1',
     name: 'Web principal',
@@ -26,5 +26,15 @@ const SAMPLE_MONITORS: Monitor[] = [
 ]
 
 export function listMonitors(): Promise<Monitor[]> {
-  return Promise.resolve(SAMPLE_MONITORS)
+  return Promise.resolve(monitors)
+}
+
+export function createMonitor(input: NewMonitor): Promise<Monitor> {
+  const monitor: Monitor = {
+    id: crypto.randomUUID(),
+    ...input,
+    status: 'pending',
+  }
+  monitors.push(monitor)
+  return Promise.resolve(monitor)
 }
