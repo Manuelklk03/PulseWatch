@@ -2,7 +2,7 @@
 
 ## Actualización
 
-2026-11-22 — Área feature/backend-base casi completa: proyecto con uv (PR #16) y endpoint GET /health con pruebas y CI del backend, ya verificada en GitHub (rama feature/health-endpoint, PR #17 pendiente de integrar). Falta la PR final del área hacia main.
+2026-11-23 — Área feature/backend-base integrada en main (PR #16 a #18). Área feature/database-base abierta: PostgreSQL 18 en Docker Compose verificado en local (rama chore/postgres-compose, PR hacia la rama de integración pendiente de integrar).
 
 ## Estado comprobado
 
@@ -12,7 +12,7 @@ Entorno comprobado en el equipo de Manuel: Node 24.21.0, npm 12.1.0, Python 3.14
 
 ## Fase y tarea activa
 
-Fase 1, base técnica. Hecho: versiones del entorno y frontend de esta fase (Vite, TypeScript estricto, ESLint, Prettier, Vitest, CI, estructura por funcionalidades, lista de monitores con los estados de carga, error, vacío y éxito, y formulario accesible de crear monitores, todo sobre datos de ejemplo). Backend: proyecto con uv, endpoint de salud, pruebas y CI hechos. Pendiente de la fase: PostgreSQL, Alembic, Docker Compose, SonarQube con cobertura y protección de main.
+Fase 1, base técnica. Hecho: versiones del entorno y frontend de esta fase (Vite, TypeScript estricto, ESLint, Prettier, Vitest, CI, estructura por funcionalidades, lista de monitores con los estados de carga, error, vacío y éxito, y formulario accesible de crear monitores, todo sobre datos de ejemplo). Backend: proyecto con uv, endpoint de salud, pruebas y CI hechos. PostgreSQL 18 en Docker Compose ya funciona en local. Pendiente de la fase: SQLAlchemy y Alembic, el resto de Docker Compose, Docker Compose, SonarQube con cobertura y protección de main.
 
 ## Alcance confirmado
 
@@ -35,11 +35,11 @@ Frontend con ESLint, Prettier y CI de GitHub Actions (lint, formato y build) ver
 
 ## Decisiones tomadas
 
-React/TypeScript/Vite; Python/FastAPI; PostgreSQL en Docker; Node 24; uv para el backend; API y worker separados; GitHub Flow con ramas de integración por área, PR de tarea hacia ellas, PR final a main con commit de merge, y toda PR con al menos tres commits. Selección de plugins y reparto con Codex en docs/tooling.md; disponibilidad real en el equipo sin verificar.
+React/TypeScript/Vite; Python/FastAPI; PostgreSQL 18 en Docker Compose con volumen persistente; Node 24; uv para el backend; API y worker separados; GitHub Flow con ramas de integración por área, PR de tarea hacia ellas, PR final a main con commit de merge, y toda PR con al menos tres commits. Selección de plugins y reparto con Codex en docs/tooling.md; disponibilidad real en el equipo sin verificar.
 
 ## Siguiente paso
 
-Integrar feature/health-endpoint en feature/backend-base y abrir la PR final de esa rama hacia main. Después, abrir el área feature/database-base: PostgreSQL en Docker Compose, SQLAlchemy y Alembic, con Manuel escribiendo el primer modelo y la primera migración con la explicación de Claude.
+Integrar chore/postgres-compose en feature/database-base. Después, SQLAlchemy y Alembic: Claude configura y verifica contra PostgreSQL real, y Manuel escribe la conexión, el primer modelo Monitor y la primera migración con la explicación de Claude. Antes de crear la tabla, acordar y registrar en docs/decisions/ los límites del intervalo de comprobación.
 
 ## Cómo actualizar
 
