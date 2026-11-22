@@ -2,7 +2,7 @@
 
 ## Actualización
 
-2026-11-23 — Área feature/backend-base integrada en main (PR #16 a #18). Área feature/database-base abierta: PostgreSQL 18 en Docker Compose verificado en local (rama chore/postgres-compose, PR hacia la rama de integración pendiente de integrar).
+2026-11-23 — Área feature/backend-base integrada en main (PR #16 a #18). Área feature/database-base: PostgreSQL 18 en Docker Compose integrado en la rama (PR #19) y SQLAlchemy con Alembic configurados y verificados con PostgreSQL real (rama chore/sqlalchemy-alembic, PR pendiente de integrar).
 
 ## Estado comprobado
 
@@ -12,7 +12,7 @@ Entorno comprobado en el equipo de Manuel: Node 24.21.0, npm 12.1.0, Python 3.14
 
 ## Fase y tarea activa
 
-Fase 1, base técnica. Hecho: versiones del entorno y frontend de esta fase (Vite, TypeScript estricto, ESLint, Prettier, Vitest, CI, estructura por funcionalidades, lista de monitores con los estados de carga, error, vacío y éxito, y formulario accesible de crear monitores, todo sobre datos de ejemplo). Backend: proyecto con uv, endpoint de salud, pruebas y CI hechos. PostgreSQL 18 en Docker Compose ya funciona en local. Pendiente de la fase: SQLAlchemy y Alembic, el resto de Docker Compose, Docker Compose, SonarQube con cobertura y protección de main.
+Fase 1, base técnica. Hecho: versiones del entorno y frontend de esta fase (Vite, TypeScript estricto, ESLint, Prettier, Vitest, CI, estructura por funcionalidades, lista de monitores con los estados de carga, error, vacío y éxito, y formulario accesible de crear monitores, todo sobre datos de ejemplo). Backend: proyecto con uv, endpoint de salud, pruebas y CI hechos. PostgreSQL 18 en Docker Compose ya funciona en local. SQLAlchemy, Alembic y psycopg instalados y Alembic configurado, sin modelos ni migraciones todavía. Pendiente de la fase: primer modelo y primera migración, el resto de Docker Compose, Docker Compose, SonarQube con cobertura y protección de main.
 
 ## Alcance confirmado
 
@@ -39,7 +39,7 @@ React/TypeScript/Vite; Python/FastAPI; PostgreSQL 18 en Docker Compose con volum
 
 ## Siguiente paso
 
-Integrar chore/postgres-compose en feature/database-base. Después, SQLAlchemy y Alembic: Claude configura y verifica contra PostgreSQL real, y Manuel escribe la conexión, el primer modelo Monitor y la primera migración con la explicación de Claude. Antes de crear la tabla, acordar y registrar en docs/decisions/ los límites del intervalo de comprobación.
+Integrar chore/sqlalchemy-alembic en feature/database-base. Después, Manuel escribe con la explicación de Claude la conexión a la base de datos, el primer modelo Monitor y la primera migración, con una prueba contra PostgreSQL (que exigirá añadir un servicio de PostgreSQL a la CI del backend). Antes de crear la tabla, acordar y registrar en docs/decisions/ los límites del intervalo de comprobación.
 
 ## Cómo actualizar
 

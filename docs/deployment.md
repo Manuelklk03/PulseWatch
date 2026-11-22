@@ -75,6 +75,25 @@ docker compose down                # para y conserva los datos
 
 Si falta .env o alguna variable obligatoria, Compose se detiene con un mensaje que nombra la variable que falta.
 
+### Migraciones (Alembic)
+
+Configuradas en backend/alembic.ini y backend/migrations/. La dirección de la base de datos sale de la variable DATABASE_URL de .env, nunca de un archivo de Git. Comandos, desde backend/ (PowerShell), con la base de datos arrancada:
+
+```powershell
+uv run --env-file ../.env alembic current                  # versión aplicada
+uv run --env-file ../.env alembic upgrade head             # aplica las migraciones pendientes
+uv run --env-file ../.env alembic downgrade -1             # deshace la última
+uv run --env-file ../.env alembic revision --autogenerate -m "mensaje"   # cuando los modelos estén conectados
+```
+
+Notas:
+
+- DATABASE_URL usa 127.0.0.1 y no localhost: en Windows, localhost puede resolver antes a IPv6 (::1), donde Docker no publica el puerto, y la conexión se queda esperando sin dar error. Se comprobó: con localhost el comando se colgaba y con 127.0.0.1 respondía en menos de un segundo.
+- Cada migración generada se corrige y formatea con Ruff (check --fix y format), porque la plantilla de Alembic usa sintaxis antigua que las reglas del proyecto rechazan.
+- Sin la variable DATABASE_URL, Alembic se detiene con un mensaje que explica cómo ejecutarlo.
+- Estado actual: todavía no hay modelos ni migraciones. target_metadata es None en migrations/env.py y se conectará con el primer modelo.
+- Verificado con PostgreSQL real y una migración temporal (borrada después): SQL sin conexión, upgrade, current y downgrade.
+
 ## CD
 
 1. Validar el commit integrado.
