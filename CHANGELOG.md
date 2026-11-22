@@ -43,4 +43,9 @@ Cambios completados, no planes futuros. Estos últimos pertenecen al roadmap.
 - Endpoint GET /health con modelo de respuesta de Pydantic, factoría create_app y dos pruebas.
 - CI del backend (uv sync --locked, Ruff, mypy y pytest) con la acción setup-uv fijada por SHA, verificada con Python 3.13 en GitHub.
 
+### Entorno local
+
+- compose.yaml con PostgreSQL 18, volumen persistente, comprobación de salud y puerto publicado solo en 127.0.0.1:5433.
+- .env.example con valores ficticios; el archivo .env queda fuera de Git y Compose avisa si falta alguna variable.
+
 La incorporación a un repositorio y la configuración técnica todavía están pendientes.
