@@ -2,7 +2,7 @@
 
 ## Actualización
 
-2026-11-23 — Área feature/backend-base integrada en main (PR #16 a #18). Área feature/database-base: PostgreSQL 18 en Docker Compose integrado en la rama (PR #19) y SQLAlchemy con Alembic configurados y verificados con PostgreSQL real (rama chore/sqlalchemy-alembic, PR pendiente de integrar).
+2026-11-23 — Área feature/database-base: PostgreSQL (PR #19) y SQLAlchemy con Alembic (PR #20) integrados en la rama. Decisión 0001 de los límites de comprobación registrada. La tarea del primer modelo está preparada en la rama feature/monitor-model, a la espera del código de Manuel.
 
 ## Estado comprobado
 
@@ -22,7 +22,7 @@ Alcance de docs/product.md aceptado sin cambios: primer recorrido local (Fase 2)
 
 Se acuerdan y se registran en docs/decisions/ antes de implementarlas:
 
-1. Intervalo mínimo y máximo de comprobación, y timeout máximo. El formulario usa de forma provisional 30 a 3600 segundos (constantes en validateMonitorForm.ts); el backend tendrá la validación real.
+1. Resuelta el 2026-11-23: intervalo de 30 a 3600 s y timeout de 1 a 30 s, con 10 s por defecto (docs/decisions/0001-limites-de-comprobacion.md). El frontend aún no tiene el campo de timeout.
 2. Número de fallos consecutivos que abre una incidencia.
 3. Comportamiento de una comprobación ya iniciada cuando se pausa el monitor.
 4. Fórmula y ventana de la disponibilidad.
@@ -39,7 +39,7 @@ React/TypeScript/Vite; Python/FastAPI; PostgreSQL 18 en Docker Compose con volum
 
 ## Siguiente paso
 
-Integrar chore/sqlalchemy-alembic en feature/database-base. Después, Manuel escribe con la explicación de Claude la conexión a la base de datos, el primer modelo Monitor y la primera migración, con una prueba contra PostgreSQL (que exigirá añadir un servicio de PostgreSQL a la CI del backend). Antes de crear la tabla, acordar y registrar en docs/decisions/ los límites del intervalo de comprobación.
+Manuel escribe, con la explicación de Claude, la base declarativa, el motor, el modelo Monitor y sus pruebas contra PostgreSQL en la rama feature/monitor-model. Claude genera la migración con él y añade a la CI un PostgreSQL de servicio. Al terminar, PR hacia feature/database-base y después PR final del área hacia main.
 
 ## Cómo actualizar
 
