@@ -34,6 +34,13 @@ Cambios completados, no planes futuros. Estos últimos pertenecen al roadmap.
 - Estado pending (Pendiente) para monitores aún no comprobados.
 - Fin de línea LF en todo el repositorio con .gitattributes.
 - Vitest, jsdom y Testing Library configurados, con los scripts test y test:watch.
-- Pruebas de EmptyState, MonitorCard y MonitorsPage (10 en total) ejecutadas en la CI del frontend, con user-event para simular la interacción.
+- Pruebas de EmptyState, MonitorCard, MonitorForm, MonitorsPage y la validación (31 en total) ejecutadas en la CI del frontend, con user-event para simular la interacción.
+
+### Backend
+
+- Proyecto en backend/ con uv, Python 3.13 y FastAPI, con uv.lock para instalaciones reproducibles.
+- Ruff, mypy en modo estricto y pytest configurados y verificados con una ejecución real; pruebas con httpx2.
+- Endpoint GET /health con modelo de respuesta de Pydantic, factoría create_app y dos pruebas.
+- CI del backend (uv sync --locked, Ruff, mypy y pytest) con la acción setup-uv fijada por SHA, verificada con Python 3.13 en GitHub.
 
 La incorporación a un repositorio y la configuración técnica todavía están pendientes.

@@ -16,10 +16,10 @@ Cierre: documentación revisada en main y punto de continuación actualizado.
 - [x] Fijar versiones compatibles y requisitos del entorno.
 - [x] React, TypeScript y Vite.
 - [x] ESLint, Prettier y comprobación de tipos.
-- [ ] FastAPI, Ruff, mypy y pytest.
+- [x] FastAPI, Ruff, mypy y pytest.
 - [ ] PostgreSQL y Alembic.
 - [ ] Docker Compose y comprobaciones de salud.
-- [ ] CI con pruebas mínimas significativas.
+- [x] CI con pruebas mínimas significativas.
 - [ ] SonarQube Cloud, cobertura y Quality Gate comprobado.
 - [ ] Protección de main con checks reales.
 

@@ -32,6 +32,21 @@ Desde frontend/, comprobados el 2026-11-05:
 
 Vitest está configurado (entorno jsdom, Testing Library y matchers de jest-dom en src/test/setup.ts) y hay pruebas junto a los componentes (EmptyState, MonitorCard, MonitorForm, MonitorsPage y la validación del formulario, 31 pruebas, con user-event para simular clics), que ejecuta la CI. Sin cobertura medida todavía.
 
+## Scripts del backend
+
+Desde backend/, comprobados el 2026-11-21 con Python 3.13.7:
+
+| Comando | Función |
+| --- | --- |
+| uv sync --locked | Instala las dependencias exactas de uv.lock |
+| uv run ruff check . | Lint con Ruff |
+| uv run ruff format --check . | Comprueba el formato con Ruff |
+| uv run mypy | Tipos en modo estricto sobre app y tests |
+| uv run pytest | Pruebas |
+| uv run uvicorn app.main:app --reload | Arranca la API en local (http://127.0.0.1:8000, documentación en /docs) |
+
+Hay 2 pruebas del endpoint /health, que ejecuta la CI del backend (.github/workflows/backend-ci.yml: uv sync --locked, ruff check, ruff format --check, mypy y pytest). Sin cobertura medida todavía.
+
 ## Pruebas significativas
 
 Unitarias: umbrales, timeout, apertura/cierre de incidencias y fórmula de disponibilidad.
@@ -50,7 +65,7 @@ PR hacia main y push a main: instalación reproducible, lint, formato, tipos, te
 
 ### Estado actual
 
-Existe el workflow .github/workflows/frontend-ci.yml: npm ci, lint, format:check, npm test y build del frontend (tipos incluidos en el build), con Node 24, permisos de solo lectura y concurrencia que cancela ejecuciones antiguas. Se activa en PR hacia cualquier rama (las de tarea van hacia ramas de integración) y en push a main, cuando cambia frontend/ o el propio workflow. Faltan la cobertura del frontend, el backend, la construcción Docker y SonarQube. Las acciones usan tags de versión mayor (checkout v7 y setup-node v7); fijarlas por SHA queda pendiente (ver DevSecOps).
+Existe el workflow .github/workflows/frontend-ci.yml: npm ci, lint, format:check, npm test y build del frontend (tipos incluidos en el build), con Node 24, permisos de solo lectura y concurrencia que cancela ejecuciones antiguas. Se activa en PR hacia cualquier rama (las de tarea van hacia ramas de integración) y en push a main, cuando cambia frontend/ o el propio workflow. Existe también .github/workflows/backend-ci.yml para el backend. Faltan la cobertura de ambos, la construcción Docker y SonarQube. Las acciones usan tags de versión mayor (checkout v7 y setup-node v7); fijarlas por SHA queda pendiente (ver DevSecOps); la acción setup-uv del backend ya está fijada por SHA.
 
 Los controles deben ejecutarse sobre el commit vigente de la PR. Fallos no se ocultan con continue-on-error en checks obligatorios.
 
