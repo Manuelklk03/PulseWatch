@@ -12,7 +12,7 @@ Comprobado el 2026-11-05 en el equipo de Manuel (Windows 11, PowerShell):
 | --- | --- | --- |
 | Node.js | 24.21.0 | Usar Node 24. Vite 8 exige ^20.19.0 o >=22.12.0. |
 | npm | 12.1.0 | Gestor del frontend; se conserva package-lock.json. |
-| Python | 3.14.0 y 3.13.7 | Usar 3.13.7, verificado con una ejecución real de ruff, mypy y pytest el 2026-11-21. |
+| Python | 3.14.0 y 3.13.7 | Usar 3.13.7, verificado con ruff, mypy y pytest en local (2026-11-21) y en la CI (3.13.18 en Linux, 2026-11-22). |
 | uv | 0.13.4 | Gestor de entorno y dependencias del backend; se conserva uv.lock. |
 | Docker y Compose | 29.9.2 y 5.6.1 | Entorno reproducible y PostgreSQL local. |
 | Git | 2.51.0 | Flujo de docs/git-workflow.md. |
@@ -34,6 +34,8 @@ TypeScript se queda en la serie 6.0 (`~6.0.3`) y no en la 7.0 que trae la planti
 Versiones instaladas el 2026-11-21 con uv: FastAPI 0.165.0, Starlette 1.10.0, uvicorn 0.54.0, pytest 9.2.0, Ruff 0.17.6, mypy 2.4.1 y httpx2 2.16.2. Python 3.13 queda fijado en backend/.python-version y en requires-python. El proyecto no se empaqueta (es una aplicación) y se conserva backend/uv.lock.
 
 El cliente de pruebas de Starlette marca httpx como obsoleto y recomienda httpx2, así que las pruebas usan httpx2.
+
+La CI del backend descarga Python 3.13 a partir de backend/.python-version y ejecuta las mismas comprobaciones que en local.
 
 Para preparar otro ordenador: instalar uv y ejecutar `uv sync --locked` desde backend/.
 
