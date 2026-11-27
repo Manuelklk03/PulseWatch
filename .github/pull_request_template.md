@@ -1,25 +1,20 @@
-## Qué cambia
+## Qué toca
 
-Resultado concreto.
+Qué necesidad resuelve y qué comportamiento final tiene.
 
-## Motivo
+## Cambios
 
-Problema o tarea que resuelve.
+-
 
-## Comprobaciones
+## Validación
 
-- Comando o revisión:
-- Resultado:
-- Limitaciones:
+Comandos ejecutados y resultados reales. Indica lo que falló y se corrigió, y lo que no se pudo comprobar.
+
+## Riesgos y pendientes
+
+-
 
 ## Documentación
 
-Documentos actualizados o razón por la que no es necesario.
-
-## Revisión
-
-- [ ] Diff revisado.
-- [ ] Criterios de la tarea cumplidos.
-- [ ] Comprobaciones aplicables ejecutadas.
-- [ ] Sin secretos ni archivos ajenos.
-- [ ] Estado preparado para continuar.
+- [ ] Estado actualizado.
+- [ ] Reglas o decisiones actualizadas cuando corresponde.

@@ -20,6 +20,7 @@ Cambios completados, no planes futuros. Estos últimos pertenecen al roadmap.
 - Skills de Claude Code y Codex clasificadas por fase, y reparto de trabajo entre ambos, en docs/tooling.md.
 - Regla de modo guiado: pasos con varios archivos relacionados, cada uno explicado, y las tareas que no son código las hace el agente.
 - Flujo de Git con ramas de integración por área, PR de tarea hacia ellas y PR final a main; la regla de tres commits vale para toda PR y la CI se ejecuta en PR hacia cualquier rama.
+- Normas de GitHub Flow: squash and merge en todas las PR y plantilla de PR con las secciones Qué toca, Cambios, Validación, Riesgos y pendientes y Documentación.
 
 ### Frontend
 

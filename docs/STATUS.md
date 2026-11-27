@@ -2,7 +2,7 @@
 
 ## Actualización
 
-2026-11-27 — Área feature/database-base completa: PostgreSQL, SQLAlchemy con Alembic, el modelo Monitor con su migración y sus pruebas contra PostgreSQL real, con la CI del backend ampliada (rama feature/monitor-model). Falta integrar la tarea y la PR final del área hacia main.
+2026-11-27 — Área feature/database-base integrada en main (PR #19 a #22), la última con squash and merge. Normas de squash and merge y formato de PR actualizadas (rama docs/squash-and-pr-format, PR pendiente de integrar).
 
 ## Estado comprobado
 
@@ -35,11 +35,11 @@ Frontend con ESLint, Prettier y CI de GitHub Actions (lint, formato y build) ver
 
 ## Decisiones tomadas
 
-React/TypeScript/Vite; Python/FastAPI; PostgreSQL 18 en Docker Compose con volumen persistente; Node 24; uv para el backend; API y worker separados; GitHub Flow con ramas de integración por área, PR de tarea hacia ellas, PR final a main con commit de merge, y toda PR con al menos tres commits. Selección de plugins y reparto con Codex en docs/tooling.md; disponibilidad real en el equipo sin verificar.
+React/TypeScript/Vite; Python/FastAPI; PostgreSQL 18 en Docker Compose con volumen persistente; Node 24; uv para el backend; API y worker separados; GitHub Flow con ramas de integración por área, PR de tarea hacia ellas, PR final a main con squash and merge, y toda PR con al menos tres commits. Selección de plugins y reparto con Codex en docs/tooling.md; disponibilidad real en el equipo sin verificar.
 
 ## Siguiente paso
 
-Integrar feature/monitor-model en feature/database-base con squash and merge y abrir la PR final del área hacia main. Después, el área de Docker Compose completo: Dockerfile del backend y servicio de la API con comprobación de salud sobre /health. Más adelante, SonarQube con cobertura y la protección de main.
+Integrar docs/squash-and-pr-format. Después, el área feature/monitors-api: esquemas de Pydantic, rutas GET y POST /monitors con validación y pruebas contra PostgreSQL, escritas por Manuel con la explicación de Claude. Claude prepara aparte, con su propia tarea, el Dockerfile del backend y el servicio de la API en Compose, SonarQube con cobertura y la protección de main.
 
 ## Cómo actualizar
 
