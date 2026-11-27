@@ -17,7 +17,7 @@ Cierre: documentación revisada en main y punto de continuación actualizado.
 - [x] React, TypeScript y Vite.
 - [x] ESLint, Prettier y comprobación de tipos.
 - [x] FastAPI, Ruff, mypy y pytest.
-- [ ] PostgreSQL y Alembic.
+- [x] PostgreSQL y Alembic.
 - [ ] Docker Compose y comprobaciones de salud.
 - [x] CI con pruebas mínimas significativas.
 - [ ] SonarQube Cloud, cobertura y Quality Gate comprobado.

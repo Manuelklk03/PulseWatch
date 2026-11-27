@@ -41,6 +41,21 @@ Cambios completados, no planes futuros. Estos últimos pertenecen al roadmap.
 - Proyecto en backend/ con uv, Python 3.13 y FastAPI, con uv.lock para instalaciones reproducibles.
 - Ruff, mypy en modo estricto y pytest configurados y verificados con una ejecución real; pruebas con httpx2.
 - Endpoint GET /health con modelo de respuesta de Pydantic, factoría create_app y dos pruebas.
+- SQLAlchemy 2, Alembic y psycopg 3 instalados; Alembic configurado para leer DATABASE_URL del entorno y corregir y formatear cada migración con Ruff.
 - CI del backend (uv sync --locked, Ruff, mypy y pytest) con la acción setup-uv fijada por SHA, verificada con Python 3.13 en GitHub.
+- Base declarativa con convención de nombres para las restricciones y motor de conexión creado al pedirlo, de modo que /health funciona sin base de datos.
+- Modelo Monitor y su primera migración: tabla monitors con identificador UUID, restricciones CHECK para el intervalo y el timeout, estado e instante de creación con zona horaria.
+- Pruebas del modelo contra PostgreSQL real, con una sesión que se deshace al terminar cada prueba.
+- La CI del backend levanta un PostgreSQL de servicio, aplica las migraciones, comprueba que se deshacen y vuelven a aplicarse, y ejecuta alembic check.
+
+### Decisiones
+
+- 0001: intervalo de comprobación de 30 a 3600 segundos y timeout de 1 a 30 segundos, con 10 por defecto.
+
+### Entorno local
+
+- compose.yaml con PostgreSQL 18, volumen persistente, comprobación de salud y puerto publicado solo en 127.0.0.1:5433.
+- .env.example con valores ficticios; el archivo .env queda fuera de Git y Compose avisa si falta alguna variable.
+- DATABASE_URL con 127.0.0.1 para evitar que la conexión se cuelgue en Windows por la resolución a IPv6.
 
 La incorporación a un repositorio y la configuración técnica todavía están pendientes.

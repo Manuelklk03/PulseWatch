@@ -47,6 +47,53 @@ Compose tendrá frontend, API, worker y PostgreSQL. Al implementarlo, documentar
 
 .env.example contiene valores ficticios. Los secretos locales se excluyen de Git. PostgreSQL dispone de volumen persistente. Borrar volúmenes requiere advertir la pérdida real de datos y autorización correspondiente.
 
+### PostgreSQL local
+
+Estado actual: compose.yaml define un único servicio, `db`, con PostgreSQL. La API, el worker y el frontend se añadirán después.
+
+| Elemento | Valor |
+| --- | --- |
+| Imagen | postgres:18-alpine (verificado con PostgreSQL 18.7) |
+| Puerto | 127.0.0.1:5433 en el equipo, 5432 dentro de Docker. Solo accesible desde el propio equipo. |
+| Datos | Volumen postgres_data, que sobrevive a parar y volver a arrancar el contenedor (comprobado) |
+| Salud | Comprobación con pg_isready cada 5 segundos |
+| Variables | POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB y POSTGRES_PORT, en .env (copia de .env.example, que contiene valores ficticios) |
+
+El puerto 5433 evita chocar con otros PostgreSQL locales que usen el 5432. Si el 5433 también está ocupado, cambiar POSTGRES_PORT en .env.
+
+Comandos, desde la raíz del repositorio (PowerShell):
+
+```powershell
+Copy-Item .env.example .env        # solo la primera vez
+docker compose up -d --wait        # arranca y espera a que esté sano
+docker compose ps                  # estado
+docker compose logs db             # diagnóstico
+docker compose down                # para y conserva los datos
+```
+
+`docker compose down -v` borra también el volumen y **destruye todos los datos** de la base. Usarlo solo cuando se quiera empezar de cero.
+
+Si falta .env o alguna variable obligatoria, Compose se detiene con un mensaje que nombra la variable que falta.
+
+### Migraciones (Alembic)
+
+Configuradas en backend/alembic.ini y backend/migrations/. La dirección de la base de datos sale de la variable DATABASE_URL de .env, nunca de un archivo de Git. Comandos, desde backend/ (PowerShell), con la base de datos arrancada:
+
+```powershell
+uv run --env-file ../.env alembic current                  # versión aplicada
+uv run --env-file ../.env alembic upgrade head             # aplica las migraciones pendientes
+uv run --env-file ../.env alembic downgrade -1             # deshace la última
+uv run --env-file ../.env alembic revision --autogenerate -m "mensaje"   # cuando los modelos estén conectados
+```
+
+Notas:
+
+- DATABASE_URL usa 127.0.0.1 y no localhost: en Windows, localhost puede resolver antes a IPv6 (::1), donde Docker no publica el puerto, y la conexión se queda esperando sin dar error. Se comprobó: con localhost el comando se colgaba y con 127.0.0.1 respondía en menos de un segundo.
+- Cada migración generada se corrige y formatea con Ruff (check --fix y format), porque la plantilla de Alembic usa sintaxis antigua que las reglas del proyecto rechazan.
+- Sin la variable DATABASE_URL, Alembic se detiene con un mensaje que explica cómo ejecutarlo.
+- Estado actual: hay una migración (crear la tabla monitors) y target_metadata apunta a Base.metadata en migrations/env.py. alembic check no detecta restricciones CHECK; las protegen las pruebas. Las pruebas del modelo necesitan la base de datos arrancada y las migraciones aplicadas.
+- Verificado con PostgreSQL real y una migración temporal (borrada después): SQL sin conexión, upgrade, current y downgrade.
+
 ## CD
 
 1. Validar el commit integrado.
