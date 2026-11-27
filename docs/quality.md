@@ -42,10 +42,12 @@ Desde backend/, comprobados el 2026-11-21 con Python 3.13.7:
 | uv run ruff check . | Lint con Ruff |
 | uv run ruff format --check . | Comprueba el formato con Ruff |
 | uv run mypy | Tipos en modo estricto sobre app y tests |
-| uv run pytest | Pruebas |
+| uv run --env-file ../.env pytest | Pruebas. Las del modelo necesitan PostgreSQL arrancado y las migraciones aplicadas |
+| uv run --env-file ../.env alembic upgrade head | Aplica las migraciones |
+| uv run --env-file ../.env alembic check | Falla si los modelos tienen cambios sin migración |
 | uv run uvicorn app.main:app --reload | Arranca la API en local (http://127.0.0.1:8000, documentación en /docs) |
 
-Hay 2 pruebas del endpoint /health, que ejecuta la CI del backend (.github/workflows/backend-ci.yml: uv sync --locked, ruff check, ruff format --check, mypy y pytest). Sin cobertura medida todavía.
+Hay 8 pruebas: 2 del endpoint /health y 6 del modelo Monitor, estas contra PostgreSQL real dentro de una transacción que se deshace al terminar. La CI del backend (.github/workflows/backend-ci.yml) levanta un PostgreSQL de servicio, aplica las migraciones, comprueba que se pueden deshacer y volver a aplicar, y ejecuta ruff, mypy, alembic check y pytest. alembic check no compara las restricciones CHECK: de esas se encargan las pruebas. Sin cobertura medida todavía.
 
 ## Pruebas significativas
 

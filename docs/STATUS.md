@@ -2,17 +2,17 @@
 
 ## Actualización
 
-2026-11-23 — Área feature/database-base: PostgreSQL (PR #19) y SQLAlchemy con Alembic (PR #20) integrados en la rama. Decisión 0001 de los límites de comprobación registrada. La tarea del primer modelo está preparada en la rama feature/monitor-model, a la espera del código de Manuel.
+2026-11-27 — Área feature/database-base completa: PostgreSQL, SQLAlchemy con Alembic, el modelo Monitor con su migración y sus pruebas contra PostgreSQL real, con la CI del backend ampliada (rama feature/monitor-model). Falta integrar la tarea y la PR final del área hacia main.
 
 ## Estado comprobado
 
-Repositorio en GitHub con main publicada. Hay documentación y un frontend con pruebas y CI; la pantalla de monitores usa datos de ejemplo provisionales. El backend tiene el endpoint GET /health con sus pruebas y su CI.
+Repositorio en GitHub con main publicada. Hay documentación y un frontend con pruebas y CI; la pantalla de monitores usa datos de ejemplo provisionales. El backend tiene el endpoint GET /health, el modelo Monitor con su migración y sus pruebas, todo en su CI.
 
 Entorno comprobado en el equipo de Manuel: Node 24.21.0, npm 12.1.0, Python 3.14.0 y 3.13, uv 0.13.4, Docker 29.9.2, Compose 5.6.1 y Git 2.51.0. Detalle y decisiones en docs/deployment.md.
 
 ## Fase y tarea activa
 
-Fase 1, base técnica. Hecho: versiones del entorno y frontend de esta fase (Vite, TypeScript estricto, ESLint, Prettier, Vitest, CI, estructura por funcionalidades, lista de monitores con los estados de carga, error, vacío y éxito, y formulario accesible de crear monitores, todo sobre datos de ejemplo). Backend: proyecto con uv, endpoint de salud, pruebas y CI hechos. PostgreSQL 18 en Docker Compose ya funciona en local. SQLAlchemy, Alembic y psycopg instalados y Alembic configurado, sin modelos ni migraciones todavía. Pendiente de la fase: primer modelo y primera migración, el resto de Docker Compose, Docker Compose, SonarQube con cobertura y protección de main.
+Fase 1, base técnica. Hecho: versiones del entorno y frontend de esta fase (Vite, TypeScript estricto, ESLint, Prettier, Vitest, CI, estructura por funcionalidades, lista de monitores con los estados de carga, error, vacío y éxito, y formulario accesible de crear monitores, todo sobre datos de ejemplo). Backend: proyecto con uv, endpoint de salud, pruebas y CI hechos. PostgreSQL 18 en Docker Compose ya funciona en local. PostgreSQL, SQLAlchemy y Alembic hechos, con el modelo Monitor y su primera migración. Pendiente de la fase: el resto de Docker Compose (API, worker y frontend), Docker Compose, SonarQube con cobertura y protección de main.
 
 ## Alcance confirmado
 
@@ -31,7 +31,7 @@ Se acuerdan y se registran en docs/decisions/ antes de implementarlas:
 
 ## Aplicación y controles
 
-Frontend con ESLint, Prettier y CI de GitHub Actions (lint, formato y build) verificada en la PR #7. Backend con Ruff, mypy estricto y pytest, ejecutados en su propia CI (PR #17). Pendientes: PostgreSQL y Alembic, Docker, SonarQube y CD. No hay despliegue verificado.
+Frontend con ESLint, Prettier y CI de GitHub Actions (lint, formato y build) verificada en la PR #7. Backend con Ruff, mypy estricto, migraciones y pytest contra PostgreSQL, ejecutados en su propia CI. Pendientes: Docker Compose completo, SonarQube y CD. No hay despliegue verificado.
 
 ## Decisiones tomadas
 
@@ -39,7 +39,7 @@ React/TypeScript/Vite; Python/FastAPI; PostgreSQL 18 en Docker Compose con volum
 
 ## Siguiente paso
 
-Manuel escribe, con la explicación de Claude, la base declarativa, el motor, el modelo Monitor y sus pruebas contra PostgreSQL en la rama feature/monitor-model. Claude genera la migración con él y añade a la CI un PostgreSQL de servicio. Al terminar, PR hacia feature/database-base y después PR final del área hacia main.
+Integrar feature/monitor-model en feature/database-base con squash and merge y abrir la PR final del área hacia main. Después, el área de Docker Compose completo: Dockerfile del backend y servicio de la API con comprobación de salud sobre /health. Más adelante, SonarQube con cobertura y la protección de main.
 
 ## Cómo actualizar
 
