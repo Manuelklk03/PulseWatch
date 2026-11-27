@@ -24,6 +24,25 @@ jobs:
     defaults:
       run:
         working-directory: backend
+    # PostgreSQL desechable que vive solo durante esta ejecución. Debe usar la
+    # misma versión que compose.yaml.
+    services:
+      postgres:
+        image: postgres:18-alpine
+        env:
+          POSTGRES_USER: pulsewatch
+          POSTGRES_PASSWORD: ci-only-password
+          POSTGRES_DB: pulsewatch
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U pulsewatch -d pulsewatch"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
+    env:
+      # La contraseña es ficticia: la base de datos desaparece al terminar el trabajo.
+      DATABASE_URL: postgresql+psycopg://pulsewatch:ci-only-password@127.0.0.1:5432/pulsewatch
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
@@ -41,5 +60,14 @@ jobs:
         run: uv run ruff format --check .
       - name: Type check
         run: uv run mypy
+      - name: Apply migrations
+        run: uv run alembic upgrade head
+      # Comprueba que cada migración se puede deshacer y volver a aplicar.
+      - name: Check migrations round trip
+        run: uv run alembic downgrade base && uv run alembic upgrade head
+      # Falla si los modelos tienen cambios sin migración. No detecta restricciones
+      # CHECK: de esas se encargan las pruebas.
+      - name: Check models match migrations
+        run: uv run alembic check
       - name: Test
         run: uv run pytest
