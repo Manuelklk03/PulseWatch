@@ -43,6 +43,14 @@ Cambios completados, no planes futuros. Estos últimos pertenecen al roadmap.
 - Endpoint GET /health con modelo de respuesta de Pydantic, factoría create_app y dos pruebas.
 - SQLAlchemy 2, Alembic y psycopg 3 instalados; Alembic configurado para leer DATABASE_URL del entorno y corregir y formatear cada migración con Ruff.
 - CI del backend (uv sync --locked, Ruff, mypy y pytest) con la acción setup-uv fijada por SHA, verificada con Python 3.13 en GitHub.
+- Base declarativa con convención de nombres para las restricciones y motor de conexión creado al pedirlo, de modo que /health funciona sin base de datos.
+- Modelo Monitor y su primera migración: tabla monitors con identificador UUID, restricciones CHECK para el intervalo y el timeout, estado e instante de creación con zona horaria.
+- Pruebas del modelo contra PostgreSQL real, con una sesión que se deshace al terminar cada prueba.
+- La CI del backend levanta un PostgreSQL de servicio, aplica las migraciones, comprueba que se deshacen y vuelven a aplicarse, y ejecuta alembic check.
+
+### Decisiones
+
+- 0001: intervalo de comprobación de 30 a 3600 segundos y timeout de 1 a 30 segundos, con 10 por defecto.
 
 ### Entorno local
 

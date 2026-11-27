@@ -91,7 +91,7 @@ Notas:
 - DATABASE_URL usa 127.0.0.1 y no localhost: en Windows, localhost puede resolver antes a IPv6 (::1), donde Docker no publica el puerto, y la conexión se queda esperando sin dar error. Se comprobó: con localhost el comando se colgaba y con 127.0.0.1 respondía en menos de un segundo.
 - Cada migración generada se corrige y formatea con Ruff (check --fix y format), porque la plantilla de Alembic usa sintaxis antigua que las reglas del proyecto rechazan.
 - Sin la variable DATABASE_URL, Alembic se detiene con un mensaje que explica cómo ejecutarlo.
-- Estado actual: todavía no hay modelos ni migraciones. target_metadata es None en migrations/env.py y se conectará con el primer modelo.
+- Estado actual: hay una migración (crear la tabla monitors) y target_metadata apunta a Base.metadata en migrations/env.py. alembic check no detecta restricciones CHECK; las protegen las pruebas. Las pruebas del modelo necesitan la base de datos arrancada y las migraciones aplicadas.
 - Verificado con PostgreSQL real y una migración temporal (borrada después): SQL sin conexión, upgrade, current y downgrade.
 
 ## CD

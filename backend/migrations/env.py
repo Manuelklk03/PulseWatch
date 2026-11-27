@@ -21,9 +21,12 @@ if database_url is None:
 # contraseña con "%" no rompa la lectura.
 config.set_main_option("sqlalchemy.url", database_url.replace("%", "%%"))
 
-# Se conectará con los modelos (Base.metadata) cuando existan, para poder usar
-# "alembic revision --autogenerate".
-target_metadata = None
+# Importar app.models registra los modelos en Base.metadata. Con esa información
+# "alembic revision --autogenerate" compara los modelos con la base de datos.
+import app.models  # noqa: E402, F401
+from app.db.base import Base  # noqa: E402
+
+target_metadata = Base.metadata
 
 
 def run_migrations_offline() -> None:

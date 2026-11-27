@@ -9,7 +9,7 @@ Un repositorio con frontend y backend. API y worker comparten el código necesar
 | Ruta | Responsabilidad |
 | --- | --- |
 | frontend/ | React, TypeScript y Vite |
-| backend/ | FastAPI, dominio, persistencia, worker y pruebas (código en app/, pruebas en tests/) |
+| backend/ | FastAPI, dominio, persistencia, worker y pruebas (código en app/ por capas: api/ rutas HTTP, db/ conexión, models/ modelos; pruebas en tests/; migraciones en migrations/) |
 | docs/ | Documentación y decisiones |
 | .github/ | Plantillas y workflows reales cuando existan |
 | compose.yaml | Entorno local cuando se implemente |
@@ -29,6 +29,8 @@ PostgreSQL: persistencia, integridad y restricciones. SQLAlchemy para acceso y A
 ## Modelo previsto
 
 User, Monitor, CheckResult e Incident. Teams y Memberships llegan después.
+
+Monitor ya existe (tabla monitors, primera migración): identificador UUID, nombre, URL, intervalo de 30 a 3600 s, timeout de 1 a 30 s, estado (pending, up, down o paused) e instante de creación con zona horaria. Los límites los aplica la base de datos con restricciones CHECK (docs/decisions/0001-limites-de-comprobacion.md). Todavía no tiene dueño: la relación con User llega con la autenticación.
 
 ## Reglas
 
